@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="关于 | 帆哥" description="不会写代码的售前，用 AI Agent 把想法变成产品">
   <div class="about-page">
 
-    <!-- Hero intro + 头像 -->
+    <!-- ════════════════ 1. Hero ════════════════ -->
     <section class="about-hero">
       <div class="hero-accent"></div>
       <div class="hero-avatar-row">
@@ -13,214 +13,230 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="hero-text">
           <h1>关于帆哥</h1>
           <p class="lead">
-            <strong>不会写代码的售前解决方案专家</strong>，略懂 SaaS 行业的 KA 销售和渠道生态——但在 AI Agent 的帮助下，把一个个想法变成了能用的产品。
+            <strong>不会写代码的售前</strong>，在 B2B SaaS 行业摸爬滚打十几年。
+            从给客户讲方案、做 Demo、搭渠道体系，到用 AI Agent 把一个个想法变成能用的产品——
+            代码不再是工程师的特权，而是每个想解决问题的业务人的工具。
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Story -->
-    <section class="card">
-      <h2>我的故事</h2>
-      <p>
-        做了十年 B2B SaaS，最熟悉的事是给客户讲方案、做 Demo、搭渠道体系。2025 年 AI coding agent 爆发后，我开始用自然语言"写代码"——不是写 <code>class</code> 和 <code>function</code>，而是描述我想要什么，让 AI 帮我实现。
-      </p>
-      <p>
-        我的核心命题：<em>一个不懂编程的业务人，能不能靠 AI Agent 构建自己的数字产品？</em> 答案是可以。下面是我日常真正在用的工具矩阵。
-      </p>
-    </section>
-
-    <!-- Toolkit — 完整版 -->
-    <section class="card">
-      <h2>🛠 我的 AI 工具箱</h2>
-      <p class="tool-intro">这些不是"听说好用"的工具，是我每天实际在用的生产力栈。按用途分类：</p>
-
-      <!-- 分类 1: AI 对话与深度思考 -->
-      <h3 class="tool-category">💬 对话 & 深度思考</h3>
-      <div class="tool-grid">
-        <div class="tool-item">
-          <strong>Claude</strong>
-          <span>深度推理、长文写作、方案架构——我的主力"第二大脑"，擅长复杂分析和结构化输出</span>
-        </div>
-        <div class="tool-item">
-          <strong>ChatGPT</strong>
-          <span>通用对话、创意发散、GPT-4o 多模态能力——日常快速问答和头脑风暴的首选</span>
-        </div>
-        <div class="tool-item">
-          <strong>DeepSeek（深度求索）</strong>
-          <span>中文语境强、代码能力强、性价比极高——技术调研和中文内容生成的得力助手</span>
-        </div>
-        <div class="tool-item">
-          <strong>Kimi</strong>
-          <span>超长上下文窗口（20万+ token）——适合丢整份 PDF/代码仓库进去做分析</span>
-        </div>
-        <div class="tool-item">
-          <strong>豆包（Doubao / 字节跳动）</strong>
-          <span>字节系 AI 助手，中文理解优秀、响应快——日常轻量问答和搜索增强</span>
-        </div>
-        <div class="tool-item">
-          <strong>Kun（昆仑万维 Skywork）</strong>
-          <span>国产大模型之一，中英双语能力均衡——多模型对比测试时的参考选手</span>
-        </div>
-      </div>
-
-      <!-- 分类 2: AI 编程与自动化 -->
-      <h3 class="tool-category">⚡ 编码 & 自动化</h3>
-      <div class="tool-grid">
-        <div class="tool-item featured">
-          <strong>WorkBuddy</strong>
-          <span><b>我的核心工作台。</b>AI Agent 平台，内置文件读写/浏览器/终端/GitHub 连接器。不写代码也能指挥 AI 帮你改项目、跑命令、管文件——本站就是用它搭建的</span>
-        </div>
-        <div class="tool-item featured">
-          <strong>Codex（OpenAI）</strong>
-          <span><b>AI 编程引擎。</b>通过自然语言描述直接生成完整代码项目，擅长全栈开发、从零搭建应用。和 WorkBuddy 配合使用：Codex 写代码，WorkBuddy 部署运维</span>
-        </div>
-        <div class="tool-item">
-          <strong>Codex++</strong>
-          <span>Codex 的增强封装版本，提供更结构化的工作流模板和项目管理能力</span>
-        </div>
-        <div class="tool-item">
-          <strong>Codex++ 管理工具</strong>
-          <span>Codex++ 项目的配套管理面板，用于跟踪多个 AI 编码任务的进度和状态</span>
-        </div>
-        <div class="tool-item">
-          <strong>Cursor / Windsurf（CC Switch）</strong>
-          <span>AI 原生 IDE，代码补全+编辑+重构一体化。CC Switch 用于在不同 AI 编辑器间快速切换配置</span>
-        </div>
-        <div class="tool-item">
-          <strong>ZCode</strong>
-          <span>轻量级代码编辑/运行环境，用于快速测试代码片段和小型脚本</span>
-        </div>
-        <div class="tool-item">
-          <strong>Docker</strong>
-          <span>容器化部署工具——虽然我不写代码，但用 Docker 一键启动各种 AI 工具的服务端环境</span>
-        </div>
-        <div class="tool-item">
-          <strong>Marvis</strong>
-          <span>AI 辅助的开发者工具，专注于代码理解和智能提示</span>
-        </div>
-        <div class="tool-item">
-          <strong>MiniMax Code</strong>
-          <span>MiniMax 出品的代码生成模型，国产替代路线上的一个选择</span>
-        </div>
-        <div class="tool-item">
-          <strong>EchoBird</strong>
-          <span>AI 工具链中的一环，用于特定场景的自动化处理</span>
-        </div>
-      </div>
-
-      <!-- 分类 3: 智能体与工作流 -->
-      <h3 class="tool-category">🤖 智能体 & 工作流</h3>
-      <div class="tool-grid">
-        <div class="tool-item featured">
-          <strong>扣子（Coze / 字节跳动）</strong>
-          <span><b>智能体搭建平台。</b>可视化拖拽搭建 ChatBot 和 AI Agent，可一键接入飞书、微信公众号、抖音等平台——我做自媒体自动化的核心节点</span>
-        </div>
-        <div class="tool-item">
-          <strong>CodeBuddy CN</strong>
-          <span>CodeBuddy 国内版，针对国内网络环境优化的 AI 编程助手</span>
-        </div>
-        <div class="tool-item">
-          <strong>skills-manager</strong>
-          <span>WorkBuddy 的 Skill 管理工具——用于创建、编辑、发布可复用的 AI 工作流技能包</span>
-        </div>
-      </div>
-
-      <!-- 分类 4: 内容生产 -->
-      <h3 class="tool-category">📝 内容生产</h3>
-      <div class="tool-grid">
-        <div class="tool-item featured">
-          <strong>AI-Media2Doc</strong>
-          <span><b>口播视频 → 公众号图文一键转换。</b>OBS 录制口播 → AI 转录 → 自动截图排版 → 生成 Markdown/HTML 可直接粘贴到公众号后台。一个人撑起整个内容生产流水线</span>
-        </div>
+    <!-- ════════════════ 2. 我的故事 ════════════════ -->
+    <section class="card story-card">
+      <h2 class="section-icon"><span class="icon">📖</span> 我的故事</h2>
+      <div class="story-body">
+        <p>
+          在 B2B SaaS 和互联网行业<strong>做了十几年</strong>，最熟悉的事是给客户讲方案、做 Demo、搭渠道体系、陪销售打单。
+          见过太多企业数字化转型喊口号落不了地，也见过太多好工具因为"不会用"被束之高阁。
+        </p>
+        <p>
+          2025 年 AI coding agent 爆发后，我开始用自然语言"写代码"——不是写 <code>class</code> 和 <code>function</code>，
+          而是描述我想要什么，让 AI 帮我实现。从搭建这个个人主页，到做自媒体自动化流水线，到构建一套可复用的 AI 工作流技能包——
+          全部由 AI 代笔，我来指挥。
+        </p>
+        <p class="story-thesis">
+          我的核心命题：<strong>一个不懂编程的业务人，能不能靠 AI Agent 构建自己的数字产品？</strong>
+          答案是可以。而且不止是我可以，你也可以。
+        </p>
       </div>
     </section>
 
-    <!-- Current work -->
-    <section class="card">
-      <h2>🚀 我正在做的事</h2>
-      <ul class="clean-list">
-        <li><strong>自媒体自动化流水线</strong> — OBS 录制口播 → AI 转录截图 → 一键发布微信公众号，一个人完成一个团队的工作</li>
-        <li><strong>AI Builder 开发者</strong> — 围绕内容生产、数据分析、客户沟通搭建了一批可复用的 AI 工作流与智能体</li>
-        <li><strong>售前 × AI 效率工具</strong> — 用 AI Agent 做方案自动生成、竞品对比、招标分析</li>
-        <li><strong>飞书 × AI 深度集成</strong> — 把 AI 能力嵌入日常工作流：审批、报表、客户管理</li>
-      </ul>
-    </section>
-
-    <!-- Philosophy -->
-    <section class="card philosophy">
+    <!-- ════════════════ 3. 一句话 ════════════════ -->
+    <section class="card quote-card">
       <blockquote>
-        "代码不再是工程师的特权，而是每个想解决问题的业务人的工具。"
+        "我不做'技术产品'，我做的是用技术解决业务问题的方案。面向的是那些想用 AI 提升效率、但又不想从零学编程的销售、售前和运营。"
         <cite>—— 帆哥</cite>
       </blockquote>
-      <p>
-        我不做"技术产品"，我做的是"用技术解决业务问题"的方案。我面向的是那些想用 AI 提升效率、但又不想从零学编程的销售、售前、运营。
-      </p>
     </section>
 
-    <!-- QR Code Social Zone -->
-    <section class="card qr-zone">
-      <h2>📡 找到我</h2>
-      <p class="qr-intro">扫码关注 / 加群，一起聊 AI、聊搞钱、聊用 Agent 干活</p>
+    <!-- ════════════════ 4. 找到我 ════════════════ -->
+    <section class="card social-card">
+      <h2 class="section-icon"><span class="icon">📡</span> 找到我</h2>
+      <p class="social-intro">扫码关注 / 加群，一起聊 AI、聊搞钱、聊用 Agent 干活</p>
 
       <div class="qr-grid">
-        <!-- 飞书群 -->
-        <div class="qr-card">
+        <a class="qr-card" href="#" onclick="return false;">
           <div class="qr-img-wrap">
             <img src="/images/qr-feishu-group.png" alt="飞书AI粉丝群" loading="lazy" />
           </div>
           <div class="qr-label">
-            <strong>📘 飞书 AI 粉丝群</strong>
-            <span>帆哥AI粉丝群（01）· 帆友科技</span>
+            <strong>飞书 AI 粉丝群</strong>
+            <span>帆友科技 · 帆哥AI粉丝群</span>
           </div>
-        </div>
+        </a>
 
-        <!-- 微信公众号 -->
-        <div class="qr-card">
+        <a class="qr-card" href="#" onclick="return false;">
           <div class="qr-img-wrap">
             <img src="/images/qr-wechat-mp.jpg" alt="帆哥AI研究室" loading="lazy" />
           </div>
           <div class="qr-label">
-            <strong>💬 微信公众号</strong>
+            <strong>微信公众号</strong>
             <span>帆哥AI研究室</span>
           </div>
-        </div>
+        </a>
 
-        <!-- 视频号 -->
-        <div class="qr-card">
+        <a class="qr-card" href="#" onclick="return false;">
           <div class="qr-img-wrap">
-            <img src="/images/qr-video-account.jpg" alt="帆哥AI研究室视频号" loading="lazy" />
+            <img src="/images/qr-video-account.jpg" alt="视频号" loading="lazy" />
           </div>
           <div class="qr-label">
-            <strong>🎬 视频号</strong>
+            <strong>视频号</strong>
             <span>帆哥AI研究室</span>
           </div>
-        </div>
+        </a>
 
-        <!-- 抖音 -->
-        <div class="qr-card">
+        <a class="qr-card" href="#" onclick="return false;">
           <div class="qr-img-wrap">
-            <img src="/images/qr-douyin.png" alt="帆哥Benjamin@AI研究社" loading="lazy" />
+            <img src="/images/qr-douyin.png" alt="抖音" loading="lazy" />
           </div>
           <div class="qr-label">
-            <strong>🎵 抖音</strong>
-            <span>帆哥 Benjamin@AI 研究社</span>
+            <strong>抖音</strong>
+            <span>帆哥 Benjamin@AI研究社</span>
           </div>
           <div class="douyin-id">抖音号：<strong>584401655</strong></div>
-        </div>
+        </a>
       </div>
 
-      <!-- 其他平台链接 -->
       <div class="social-links-row">
-        <a href="https://space.bilibili.com/13472754" target="_blank" rel="noopener">📺 B站 · 帆哥Benjamin_AI研究院</a>
-        <a href="https://www.xiaohongshu.com/user/profile/5c2b8221000000000701bb2d" target="_blank" rel="noopener">📕 小红书 · 帆哥Benjamin_AI 研究院</a>
-        <a href="https://www.zhihu.com/people/fanshuai001" target="_blank" rel="noopener">💬 知乎 · 帆哥AI研究院</a>
+        <a href="https://space.bilibili.com/13472754" target="_blank" rel="noopener">B站 · 帆哥Benjamin_AI研究院</a>
+        <a href="https://www.xiaohongshu.com/user/profile/5c2b8221000000000701bb2d" target="_blank" rel="noopener">小红书 · 帆哥Benjamin_AI研究院</a>
+        <a href="https://www.zhihu.com/people/fanshuai001" target="_blank" rel="noopener">知乎 · 帆哥AI研究院</a>
+        <a href="https://github.com/wangan0214" target="_blank" rel="noopener">GitHub · wangan0214</a>
       </div>
     </section>
 
-    <!-- Subscribe -->
+    <!-- ════════════════ 5. 我正在做的事 ════════════════ -->
+    <section class="card work-card">
+      <h2 class="section-icon"><span class="icon">🚀</span> 我正在做的事</h2>
+      <ul class="work-list">
+        <li>
+          <span class="work-emoji">🎬</span>
+          <div class="work-text">
+            <strong>自媒体自动化流水线</strong>
+            <span>OBS 录制口播 → AI 转录截图 → 一键发布微信公众号，一个人完成一个团队的工作</span>
+          </div>
+        </li>
+        <li>
+          <span class="work-emoji">🤖</span>
+          <div class="work-text">
+            <strong>AI Builder 开发者</strong>
+            <span>围绕内容生产、数据分析、客户沟通搭建了一批可复用的 AI 工作流与智能体</span>
+          </div>
+        </li>
+        <li>
+          <span class="work-emoji">💼</span>
+          <div class="work-text">
+            <strong>售前 × AI 效率工具</strong>
+            <span>用 AI Agent 做方案自动生成、竞品对比、招标分析</span>
+          </div>
+        </li>
+        <li>
+          <span class="work-emoji">☁️</span>
+          <div class="work-text">
+            <strong>飞书 × AI 深度集成</strong>
+            <span>把 AI 能力嵌入日常工作流：审批、报表、客户管理</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ════════════════ 6. 精选项目 ════════════════ -->
+    <section class="card projects-card">
+      <h2 class="section-icon"><span class="icon">💎</span> 精选项目</h2>
+      <p class="projects-intro">我在做的和沉淀下来的东西，点进去看看</p>
+      <div class="projects-grid">
+
+        <a href="https://github.com/wangan0214" target="_blank" rel="noopener" class="project-card">
+          <div class="project-icon">🐙</div>
+          <div class="project-info">
+            <strong>GitHub 主页</strong>
+            <span>wangan0214 · 开源项目与代码仓库</span>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://wangan0214.feishu.cn/wiki/" target="_blank" rel="noopener" class="project-card">
+          <div class="project-icon">📚</div>
+          <div class="project-info">
+            <strong>飞书知识库</strong>
+            <span>AI 知识体系 · 方法论沉淀 · 搞钱集中营</span>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="https://fangeai.com" target="_blank" rel="noopener" class="project-card">
+          <div class="project-icon">🏠</div>
+          <div class="project-info">
+            <strong>本站 fangeai.com</strong>
+            <span>Astro 静态站 · Cloudflare Pages · 免备案</span>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+        <a href="/rss.xml" class="project-card">
+          <div class="project-icon">📡</div>
+          <div class="project-info">
+            <strong>RSS 订阅</strong>
+            <span>文章更新通知 · 可接入任何阅读器</span>
+          </div>
+          <span class="project-arrow">→</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ════════════════ 7. AI 工具箱 ════════════════ -->
+    <section class="card toolkit-card">
+      <h2 class="section-icon"><span class="icon">🛠</span> 我的 AI 工具箱</h2>
+      <p class="toolkit-intro">每天实际在用的生产力栈，不是"听说好用"，是真·手上有泥</p>
+
+      <!-- 分类 1: 对话 & 深度思考 -->
+      <div class="tool-group">
+        <h3 class="tool-group-title">对话 & 深度思考</h3>
+        <div class="tool-grid">
+          <div class="tool-item featured"><strong>Claude</strong><span>深度推理、长文写作、方案架构——主力"第二大脑"</span></div>
+          <div class="tool-item"><strong>ChatGPT</strong><span>GPT-4o 多模态 · 创意发散 · 头脑风暴首选</span></div>
+          <div class="tool-item"><strong>DeepSeek</strong><span>中文语境强 · 代码能力强 · 性价比极高</span></div>
+          <div class="tool-item"><strong>Kimi</strong><span>20万+ token 超长上下文 · 整份 PDF 丢进去分析</span></div>
+          <div class="tool-item"><strong>豆包 Doubao</strong><span>字节系 · 中文理解优秀 · 响应快</span></div>
+          <div class="tool-item"><strong>MiniMax M3</strong><span>国产大模型 · 多模型对比参考选手</span></div>
+        </div>
+      </div>
+
+      <!-- 分类 2: 编码 & 自动化 -->
+      <div class="tool-group">
+        <h3 class="tool-group-title">编码 & 自动化</h3>
+        <div class="tool-grid">
+          <div class="tool-item featured"><strong>WorkBuddy</strong><span>核心工作台 · AI Agent 平台 · 内置文件/浏览器/终端/GitHub 连接器</span></div>
+          <div class="tool-item featured"><strong>Codex</strong><span>OpenAI 编程引擎 · 自然语言生成完整项目 · 全栈开发</span></div>
+          <div class="tool-item"><strong>Codex++</strong><span>Codex 增强封装 · 结构化工作流模板</span></div>
+          <div class="tool-item"><strong>Cursor / CC Switch</strong><span>AI 原生 IDE · 代码补全+编辑+重构一体化</span></div>
+          <div class="tool-item"><strong>Docker</strong><span>容器化部署 · 一键启动 AI 工具服务端环境</span></div>
+          <div class="tool-item"><strong>ZCode</strong><span>轻量级代码编辑运行环境</span></div>
+        </div>
+      </div>
+
+      <!-- 分类 3: 智能体 & 工作流 -->
+      <div class="tool-group">
+        <h3 class="tool-group-title">智能体 & 工作流</h3>
+        <div class="tool-grid">
+          <div class="tool-item featured"><strong>扣子 Coze</strong><span>字节智能体平台 · 可视化拖拽 ChatBot · 接入飞书/微信/抖音</span></div>
+          <div class="tool-item"><strong>skills-manager</strong><span>Skill 管理工具 · 创建编辑发布可复用 AI 技能包</span></div>
+        </div>
+      </div>
+
+      <!-- 分类 4: 内容生产 -->
+      <div class="tool-group">
+        <h3 class="tool-group-title">内容生产</h3>
+        <div class="tool-grid">
+          <div class="tool-item featured"><strong>AI-Media2Doc</strong><span>口播视频 → 公众号图文一键转换 · OBS 录制→AI转录→自动排版</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 订阅 ════════════════ -->
     <section class="subscribe-bar">
-      <p>不想错过更新？订阅 <a href="/rss.xml">RSS Feed</a></p>
+      <p>不想错过更新？<a href="/rss.xml">订阅 RSS Feed</a> 或上方扫码关注公众号</p>
     </section>
 
   </div>
@@ -229,150 +245,116 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   .about-page { max-width: 100%; }
 
-  /* ── Hero + 头像 ── */
-  .about-hero { padding: 0.5rem 0 2rem; }
+  /* ── Hero ── */
+  .about-hero { padding: 0.5rem 0 2.5rem; }
   .hero-accent {
     width: 60px; height: 3px;
     background: linear-gradient(to right, var(--accent), transparent);
-    margin: 0 auto 1.5rem; border-radius: 2px;
+    margin: 0 auto 1.8rem; border-radius: 2px;
   }
   .hero-avatar-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    max-width: 42rem;
+    gap: 2.5rem;
+    max-width: 44rem;
     margin: 0 auto;
   }
   .hero-avatar {
-    width: 96px;
-    height: 96px;
+    width: 100px; height: 100px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--accent);
-    box-shadow: 0 4px 16px rgba(184,74,60,0.18);
+    box-shadow: 0 4px 20px rgba(184,74,60,0.20);
     flex-shrink: 0;
     transition: transform 0.25s ease;
   }
   .hero-avatar:hover { transform: scale(1.06); }
   .hero-text { text-align: left; }
-  .hero-text h1 { margin-bottom: 0.8rem; font-size: var(--fs-h1); }
+  .hero-text h1 { margin-bottom: 1rem; font-size: var(--fs-h1); }
   .lead {
     font-size: var(--fs-lead);
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
-  /* ── Card — 统一板式 ── */
+  /* ── 统一 Card ── */
   .card {
     background: var(--bg-card);
     border-radius: var(--radius);
-    padding: 2.2rem 2.4rem;
+    padding: 2.5rem 2.8rem;
     margin-top: 2rem;
     box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.045);
+    transition: box-shadow 0.2s ease;
   }
-  .card h2 { margin-top: 0; font-size: var(--fs-h2); }
-  .card p { color: var(--text-secondary); font-size: var(--fs-body); }
-  .card > p + p { margin-top: 1em; }
+  .card:hover { box-shadow: var(--shadow-md); }
 
-  /* ── Tool 分类标题 ── */
-  .tool-intro {
-    font-size: var(--fs-sm);
-    color: var(--text-light);
-    margin-bottom: 1.2rem;
-    font-style: italic;
-  }
-  .tool-category {
-    font-size: var(--fs-h3);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 2rem 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
-    font-family: var(--serif-head);
-  }
-
-  /* ── Tool grid ── */
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 0.9rem;
-    margin-top: 1rem;
-  }
-  .tool-item {
+  /* Section 标题统一样式 */
+  h2.section-icon {
     display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding: 1.1rem 1.3rem;
-    background: rgba(0,0,0,0.02);
-    border-radius: 8px;
-    border-left: 3px solid var(--accent);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .tool-item:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
-  }
-  .tool-item.featured {
-    border-left-width: 4px;
-    background: linear-gradient(135deg, rgba(184,74,60,0.04), rgba(184,74,60,0.01));
-  }
-  .tool-item strong {
-    font-family: var(--serif-head);
-    font-size: var(--fs-body);
-    font-weight: 600;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 1.5rem;
+    font-size: var(--fs-h2);
     color: var(--text-primary);
   }
-  .tool-item span {
-    font-size: var(--fs-sm);
-    color: var(--text-light);
-    line-height: 1.55;
+  h2.section-icon .icon {
+    font-size: 1.3em;
+    flex-shrink: 0;
   }
-
-  /* ── Clean list ── */
-  .clean-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.2rem 0 0;
-  }
-  .clean-list li {
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #f0ebe1;
+  .card > p,
+  .card .intro-text {
     color: var(--text-secondary);
-    line-height: 1.65;
     font-size: var(--fs-body);
+    line-height: 1.7;
   }
-  .clean-list li:last-child { border-bottom: none; }
-  .clean-list strong { color: var(--text-primary); }
 
-  /* ── Philosophy ── */
-  .philosophy blockquote {
-    border-left: 4px solid var(--accent);
-    margin: 1rem 0 1.5rem;
+  /* ── 2. 故事卡 ── */
+  .story-card .story-body p {
+    color: var(--text-secondary);
+    font-size: var(--fs-body);
+    line-height: 1.8;
+    margin-bottom: 1em;
+  }
+  .story-body p:last-child { margin-bottom: 0; }
+  .story-thesis {
     padding: 1.2rem 1.5rem;
     background: linear-gradient(135deg, var(--accent-soft), transparent);
-    border-radius: 0 var(--radius) var(--radius) 0);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    margin-top: 1.2rem !important;
+  }
+  .story-thesis strong { color: var(--accent); }
+
+  /* ── 3. 语录卡 ── */
+  .quote-card { background: linear-gradient(135deg, #faf7f2, var(--bg-card)); }
+  .quote-card blockquote {
+    border: none;
+    margin: 0;
+    padding: 0;
     font-style: italic;
     font-size: var(--fs-lead);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.75;
+    text-align: center;
   }
-  .philosophy cite {
+  .quote-card cite {
     display: block;
-    text-align: right;
-    margin-top: 0.5rem;
-    font-size: var(--fs-sm);
+    text-align: center;
+    margin-top: 1rem;
+    font-size: var(--fs-body);
     color: var(--accent);
+    font-weight: 600;
     font-style: normal;
   }
 
-  /* ════════════════ QR 二维码区域 ════════════════ */
-  .qr-zone { text-align: center; }
-  .qr-intro {
+  /* ── 4. 社交卡 ── */
+  .social-card { text-align: center; }
+  .social-intro {
     font-size: var(--fs-body);
     color: var(--text-secondary);
-    margin-bottom: 1.8rem;
+    margin-bottom: 2rem;
   }
   .qr-grid {
     display: grid;
@@ -385,20 +367,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
-    padding: 1.2rem 1rem;
+    padding: 1.5rem 1rem;
     background: #fff;
-    border-radius: 12px;
+    border-radius: 14px;
     border: 1px solid #ede8dc;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
   }
   .qr-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.09);
   }
   .qr-img-wrap {
-    width: 160px;
-    height: 160px;
-    border-radius: 10px;
+    width: 150px; height: 150px;
+    border-radius: 12px;
     overflow: hidden;
     background: #f8f6f1;
     display: flex;
@@ -406,15 +389,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     justify-content: center;
     border: 1px solid #e8e2d4;
   }
-  .qr-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+  .qr-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
   .qr-label {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.15rem;
     text-align: center;
   }
   .qr-label strong {
@@ -423,30 +402,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 600;
     color: var(--text-primary);
   }
-  .qr-label span {
-    font-size: var(--fs-xs);
-    color: var(--text-light);
-  }
+  .qr-label span { font-size: var(--fs-xs); color: var(--text-light); }
   .douyin-id {
     margin-top: 0.2rem;
     font-size: var(--fs-sm);
     color: var(--accent);
-    padding: 0.25rem 0.7rem;
+    padding: 0.2rem 0.8rem;
     background: var(--accent-soft);
     border-radius: 20px;
   }
-  .douyin-id strong {
-    font-family: var(--sans);
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
-
-  /* 其他平台文字链接行 */
+  .douyin-id strong { font-weight: 700; letter-spacing: 0.5px; }
   .social-links-row {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1.5rem 2rem;
+    gap: 1.2rem 2rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px dashed var(--rule);
@@ -456,41 +426,195 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.15s ease;
+    padding: 0.3rem 0;
   }
-  .social-links-row a:hover {
-    color: var(--accent);
+  .social-links-row a:hover { color: var(--accent); }
+
+  /* ── 5. 正在做的事 ── */
+  .work-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  .work-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.3rem 1.5rem;
+    border-bottom: 1px solid #f0ebe1;
+    transition: background 0.15s ease;
+  }
+  .work-list li:hover { background: rgba(184,74,60,0.03); }
+  .work-list li:first-child { border-top: 1px solid #f0ebe1; }
+  .work-emoji { font-size: 1.4rem; flex-shrink: 0; padding-top: 0.15rem; }
+  .work-text { display: flex; flex-direction: column; gap: 0.25rem; }
+  .work-text strong {
+    font-family: var(--serif-head);
+    font-size: var(--fs-body);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .work-text span {
+    font-size: var(--fs-sm);
+    color: var(--text-light);
+    line-height: 1.55;
+  }
+
+  /* ── 6. 精选项目 ── */
+  .projects-intro {
+    font-size: var(--fs-sm);
+    color: var(--text-light);
+    margin: -1rem 0 1.5rem;
+    font-style: italic;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .project-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.3rem 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ede8dc;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+    border-color: var(--accent);
+  }
+  .project-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    border-radius: 12px;
+  }
+  .project-info { flex: 1; min-width: 0; }
+  .project-info strong {
+    display: block;
+    font-family: var(--serif-head);
+    font-size: var(--fs-body);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+  }
+  .project-info span {
+    display: block;
+    font-size: var(--fs-xs);
+    color: var(--text-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .project-arrow {
+    font-size: 1.2rem;
+    color: var(--rule);
+    flex-shrink: 0;
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  .project-card:hover .project-arrow { color: var(--accent); transform: translateX(3px); }
+
+  /* ── 7. AI 工具箱 ── */
+  .toolkit-intro {
+    font-size: var(--fs-sm);
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .tool-group { margin-top: 1.8rem; }
+  .tool-group:first-of-type { margin-top: 0.5rem; }
+  .tool-group-title {
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--rule);
+    font-family: var(--sans);
+    letter-spacing: 0.02em;
+  }
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.7rem;
+  }
+  .tool-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem 1.2rem;
+    background: rgba(0,0,0,0.015);
+    border-radius: 10px;
+    border-left: 3px solid #ddd;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .tool-item:hover {
+    transform: translateX(3px);
+    box-shadow: var(--shadow-sm);
+    border-left-color: var(--accent);
+  }
+  .tool-item.featured {
+    border-left-width: 4px;
+    border-left-color: var(--accent);
+    background: linear-gradient(135deg, rgba(184,74,60,0.04), transparent);
+  }
+  .tool-item strong {
+    font-family: var(--serif-head);
+    font-size: var(--fs-body);
+    font-weight: 650;
+    color: var(--text-primary);
+  }
+  .tool-item span {
+    font-size: var(--fs-xs);
+    color: var(--text-light);
+    line-height: 1.5;
   }
 
   /* ── Subscribe ── */
   .subscribe-bar {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 2.2rem 1rem;
     margin-top: 2rem;
-    font-size: var(--fs-sm);
+    font-size: var(--fs-body);
     color: var(--text-secondary);
   }
   .subscribe-bar a {
     color: var(--accent);
-    font-weight: 600;
-    border-bottom: 1.5px solid var(--accent);
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent);
     padding-bottom: 2px;
   }
 
   /* ── 响应式 ── */
   @media (max-width: 900px) {
     .qr-grid { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid { grid-template-columns: 1fr; }
+    .work-list { grid-template-columns: 1fr; }
     .hero-avatar-row { flex-direction: column; text-align: center; }
     .hero-text { text-align: center; }
   }
 
   @media (max-width: 700px) {
-    .card { padding: 1.5rem 1.3rem; }
+    .card { padding: 1.8rem 1.5rem; }
     .tool-grid { grid-template-columns: 1fr; }
     .qr-grid { grid-template-columns: 1fr; justify-items: center; }
-    .qr-img-wrap { width: 180px; height: 180px; }
-    .social-links-row { flex-direction: column; align-items: center; gap: 0.8rem; }
-    .about-hero h1 { font-size: var(--fs-h1); }
-    .lead { font-size: var(--fs-body); }
-    .hero-avatar { width: 72px; height: 72px; }
+    .qr-img-wrap { width: 170px; height: 170px; }
+    .social-links-row { flex-direction: column; align-items: center; gap: 0.7rem; }
+    .hero-avatar { width: 76px; height: 76px; }
+    .work-list li { padding: 1rem; }
   }
 </style>
