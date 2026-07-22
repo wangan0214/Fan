@@ -21,29 +21,112 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         做了十年 B2B SaaS，最熟悉的事是给客户讲方案、做 Demo、搭渠道体系。2025 年 AI coding agent 爆发后，我开始用自然语言"写代码"——不是写 <code>class</code> 和 <code>function</code>，而是描述我想要什么，让 AI 帮我实现。
       </p>
       <p>
-        我的核心命题：<em>一个不懂编程的业务人，能不能靠 AI Agent 构建自己的数字产品？</em> 答案是可以。我用的就是这些工具。
+        我的核心命题：<em>一个不懂编程的业务人，能不能靠 AI Agent 构建自己的数字产品？</em> 答案是可以。下面是我日常真正在用的工具矩阵。
       </p>
     </section>
 
-    <!-- Toolkit -->
+    <!-- Toolkit — 完整版 -->
     <section class="card">
       <h2>🛠 我的 AI 工具箱</h2>
+      <p class="tool-intro">这些不是"听说好用"的工具，是我每天实际在用的生产力栈。按用途分类：</p>
+
+      <!-- 分类 1: AI 对话与深度思考 -->
+      <h3 class="tool-category">💬 对话 & 深度思考</h3>
       <div class="tool-grid">
         <div class="tool-item">
           <strong>Claude</strong>
-          <span>深度思考、方案撰写、内容策划——我的"第二大脑"</span>
+          <span>深度推理、长文写作、方案架构——我的主力"第二大脑"，擅长复杂分析和结构化输出</span>
         </div>
         <div class="tool-item">
-          <strong>WorkBuddy / Codex</strong>
-          <span>零代码构建自动化工作流，运维项目、生成内容、分析数据</span>
+          <strong>ChatGPT</strong>
+          <span>通用对话、创意发散、GPT-4o 多模态能力——日常快速问答和头脑风暴的首选</span>
         </div>
         <div class="tool-item">
-          <strong>扣子（Coze）</strong>
-          <span>搭 Chatbot、做智能体，接入飞书和微信公众号</span>
+          <strong>DeepSeek（深度求索）</strong>
+          <span>中文语境强、代码能力强、性价比极高——技术调研和中文内容生成的得力助手</span>
         </div>
         <div class="tool-item">
+          <strong>Kimi</strong>
+          <span>超长上下文窗口（20万+ token）——适合丢整份 PDF/代码仓库进去做分析</span>
+        </div>
+        <div class="tool-item">
+          <strong>豆包（Doubao / 字节跳动）</strong>
+          <span>字节系 AI 助手，中文理解优秀、响应快——日常轻量问答和搜索增强</span>
+        </div>
+        <div class="tool-item">
+          <strong>Kun（昆仑万维 Skywork）</strong>
+          <span>国产大模型之一，中英双语能力均衡——多模型对比测试时的参考选手</span>
+        </div>
+      </div>
+
+      <!-- 分类 2: AI 编程与自动化 -->
+      <h3 class="tool-category">⚡ 编码 & 自动化</h3>
+      <div class="tool-grid">
+        <div class="tool-item featured">
+          <strong>WorkBuddy</strong>
+          <span><b>我的核心工作台。</b>AI Agent 平台，内置文件读写/浏览器/终端/GitHub 连接器。不写代码也能指挥 AI 帮你改项目、跑命令、管文件——本站就是用它搭建的</span>
+        </div>
+        <div class="tool-item featured">
+          <strong>Codex（OpenAI）</strong>
+          <span><b>AI 编程引擎。</b>通过自然语言描述直接生成完整代码项目，擅长全栈开发、从零搭建应用。和 WorkBuddy 配合使用：Codex 写代码，WorkBuddy 部署运维</span>
+        </div>
+        <div class="tool-item">
+          <strong>Codex++</strong>
+          <span>Codex 的增强封装版本，提供更结构化的工作流模板和项目管理能力</span>
+        </div>
+        <div class="tool-item">
+          <strong>Codex++ 管理工具</strong>
+          <span>Codex++ 项目的配套管理面板，用于跟踪多个 AI 编码任务的进度和状态</span>
+        </div>
+        <div class="tool-item">
+          <strong>Cursor / Windsurf（CC Switch）</strong>
+          <span>AI 原生 IDE，代码补全+编辑+重构一体化。CC Switch 用于在不同 AI 编辑器间快速切换配置</span>
+        </div>
+        <div class="tool-item">
+          <strong>ZCode</strong>
+          <span>轻量级代码编辑/运行环境，用于快速测试代码片段和小型脚本</span>
+        </div>
+        <div class="tool-item">
+          <strong>Docker</strong>
+          <span>容器化部署工具——虽然我不写代码，但用 Docker 一键启动各种 AI 工具的服务端环境</span>
+        </div>
+        <div class="tool-item">
+          <strong>Marvis</strong>
+          <span>AI 辅助的开发者工具，专注于代码理解和智能提示</span>
+        </div>
+        <div class="tool-item">
+          <strong>MiniMax Code</strong>
+          <span>MiniMax 出品的代码生成模型，国产替代路线上的一个选择</span>
+        </div>
+        <div class="tool-item">
+          <strong>EchoBird</strong>
+          <span>AI 工具链中的一环，用于特定场景的自动化处理</span>
+        </div>
+      </div>
+
+      <!-- 分类 3: 智能体与工作流 -->
+      <h3 class="tool-category">🤖 智能体 & 工作流</h3>
+      <div class="tool-grid">
+        <div class="tool-item featured">
+          <strong>扣子（Coze / 字节跳动）</strong>
+          <span><b>智能体搭建平台。</b>可视化拖拽搭建 ChatBot 和 AI Agent，可一键接入飞书、微信公众号、抖音等平台——我做自媒体自动化的核心节点</span>
+        </div>
+        <div class="tool-item">
+          <strong>CodeBuddy CN</strong>
+          <span>CodeBuddy 国内版，针对国内网络环境优化的 AI 编程助手</span>
+        </div>
+        <div class="tool-item">
+          <strong>skills-manager</strong>
+          <span>WorkBuddy 的 Skill 管理工具——用于创建、编辑、发布可复用的 AI 工作流技能包</span>
+        </div>
+      </div>
+
+      <!-- 分类 4: 内容生产 -->
+      <h3 class="tool-category">📝 内容生产</h3>
+      <div class="tool-grid">
+        <div class="tool-item featured">
           <strong>AI-Media2Doc</strong>
-          <span>口播视频一键转公众号图文，一个人撑起内容生产</span>
+          <span><b>口播视频 → 公众号图文一键转换。</b>OBS 录制口播 → AI 转录 → 自动截图排版 → 生成 Markdown/HTML 可直接粘贴到公众号后台。一个人撑起整个内容生产流水线</span>
         </div>
       </div>
     </section>
@@ -53,7 +136,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>🚀 我正在做的事</h2>
       <ul class="clean-list">
         <li><strong>自媒体自动化流水线</strong> — OBS 录制口播 → AI 转录截图 → 一键发布微信公众号，一个人完成一个团队的工作</li>
-        <li><strong>WorkBuddy Agent Skills 开发者</strong> — 围绕内容生产、数据分析、客户沟通搭建了一批可复用的 AI 工作流</li>
+        <li><strong>WorkBuddy Skill 开发者</strong> — 围绕内容生产、数据分析、客户沟通搭建了一批可复用的 AI 工作流技能包</li>
         <li><strong>售前 × AI 效率工具</strong> — 用 AI Agent 做方案自动生成、竞品对比、招标分析</li>
         <li><strong>飞书 × AI 深度集成</strong> — 把 AI 能力嵌入日常工作流：审批、报表、客户管理</li>
       </ul>
@@ -146,100 +229,138 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   .about-page { max-width: 100%; }
 
-  .about-hero { text-align: center; padding: 1rem 0 2rem; }
+  /* ── Hero ── */
+  .about-hero { text-align: center; padding: 0.5rem 0 2rem; }
   .hero-accent {
-    width: 50px; height: 3px;
+    width: 60px; height: 3px;
     background: linear-gradient(to right, var(--accent), transparent);
     margin: 0 auto 1.5rem; border-radius: 2px;
   }
   .about-hero h1 { margin-bottom: 1.2rem; }
   .lead {
-    font-size: 1.12rem;
+    font-size: var(--fs-lead);
     color: var(--text-secondary);
-    max-width: 34rem;
+    max-width: 38rem;
     margin: 0 auto;
     line-height: 1.7;
   }
 
+  /* ── Card — 统一板式 ── */
   .card {
     background: var(--bg-card);
     border-radius: var(--radius);
-    padding: 2rem 2rem;
-    margin-top: 1.8rem;
+    padding: 2.2rem 2.4rem;
+    margin-top: 2rem;
     box-shadow: var(--shadow-sm);
     border: 1px solid rgba(0,0,0,0.04);
   }
-  .card h2 { margin-top: 0; font-size: 1.4rem; }
-  .card p { color: var(--text-secondary); }
+  /* 卡片内 h2 统一用 --fs-h2 */
+  .card h2 { margin-top: 0; font-size: var(--fs-h2); }
+  .card p { color: var(--text-secondary); font-size: var(--fs-body); }
+  .card > p + p { margin-top: 1em; }
 
-  /* Tool grid */
+  /* ── Tool 分类标题 ── */
+  .tool-intro {
+    font-size: var(--fs-sm);
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+  .tool-category {
+    font-size: var(--fs-h3);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--serif-head);
+  }
+
+  /* ── Tool grid ── */
   .tool-grid {
     display: grid;
-    gap: 1rem;
-    margin-top: 1.3rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.9rem;
+    margin-top: 1rem;
   }
   .tool-item {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    padding: 1rem 1.2rem;
+    gap: 0.35rem;
+    padding: 1.1rem 1.3rem;
     background: rgba(0,0,0,0.02);
     border-radius: 8px;
     border-left: 3px solid var(--accent);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .tool-item:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  /* 核心工具高亮 */
+  .tool-item.featured {
+    border-left-width: 4px;
+    background: linear-gradient(135deg, rgba(184,74,60,0.04), rgba(184,74,60,0.01));
   }
   .tool-item strong {
     font-family: var(--serif-head);
-    font-size: 1rem;
+    font-size: var(--fs-body);
+    font-weight: 600;
     color: var(--text-primary);
   }
   .tool-item span {
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     color: var(--text-light);
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
-  /* Clean list */
+  /* ── Clean list ── */
   .clean-list {
     list-style: none;
     padding: 0;
     margin: 1.2rem 0 0;
   }
   .clean-list li {
-    padding: 0.75rem 0;
+    padding: 0.8rem 0;
     border-bottom: 1px solid #f0ebe1;
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.65;
+    font-size: var(--fs-body);
   }
   .clean-list li:last-child { border-bottom: none; }
   .clean-list strong { color: var(--text-primary); }
 
-  /* Project grid */
+  /* ── Project grid ── */
   .project-grid {
     display: grid;
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.9rem;
     margin-top: 1.3rem;
   }
   .project-item {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    padding: 1rem 1.2rem;
+    gap: 0.35rem;
+    padding: 1.1rem 1.3rem;
     background: linear-gradient(135deg, rgba(139,90,43,0.04), rgba(139,90,43,0.01));
     border-radius: 8px;
     border-left: 3px solid #8b5a2b;
+    transition: transform 0.15s ease;
   }
+  .project-item:hover { transform: translateY(-1px); }
   .project-item strong {
     font-family: var(--serif-head);
-    font-size: 0.98rem;
+    font-size: var(--fs-body);
+    font-weight: 600;
     color: var(--text-primary);
   }
   .project-item span {
-    font-size: 0.88rem;
+    font-size: var(--fs-sm);
     color: var(--text-light);
     line-height: 1.5;
   }
 
-  /* Philosophy */
+  /* ── Philosophy ── */
   .philosophy blockquote {
     border-left: 4px solid var(--accent);
     margin: 1rem 0 1.5rem;
@@ -247,7 +368,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: linear-gradient(135deg, var(--accent-soft), transparent);
     border-radius: 0 var(--radius) var(--radius) 0);
     font-style: italic;
-    font-size: 1.12rem;
+    font-size: var(--fs-lead);
     color: var(--text-primary);
     line-height: 1.6;
   }
@@ -255,22 +376,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: block;
     text-align: right;
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     color: var(--accent);
     font-style: normal;
   }
 
-  /* Social */
+  /* ── Social ── */
   .social-grid {
     display: grid;
-    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.9rem;
     margin-top: 1.3rem;
   }
   .social-link {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 0.9rem 1.1rem;
+    padding: 1rem 1.2rem;
     border-radius: 8px;
     text-decoration: none;
     transition: all 0.18s ease;
@@ -286,20 +408,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .social-link strong {
     display: block;
     font-family: var(--serif-head);
-    font-size: 0.95rem;
+    font-size: var(--fs-body);
+    font-weight: 600;
     color: var(--text-primary);
   }
   .social-link span {
-    font-size: 0.84rem;
+    font-size: var(--fs-sm);
     color: var(--text-light);
   }
 
-  /* Subscribe */
+  /* ── Subscribe ── */
   .subscribe-bar {
     text-align: center;
     padding: 2rem 1rem;
-    margin-top: 1.8rem;
-    font-size: 0.95rem;
+    margin-top: 2rem;
+    font-size: var(--fs-sm);
     color: var(--text-secondary);
   }
   .subscribe-bar a {
@@ -309,9 +432,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding-bottom: 2px;
   }
 
-  @media (max-width: 600px) {
-    .card { padding: 1.4rem 1.2rem; }
-    .about-hero h1 { font-size: 2rem; }
-    .lead { font-size: 1rem; }
+  @media (max-width: 700px) {
+    .card { padding: 1.5rem 1.3rem; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .project-grid { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+    .about-hero h1 { font-size: var(--fs-h1); }
+    .lead { font-size: var(--fs-body); }
   }
 </style>
