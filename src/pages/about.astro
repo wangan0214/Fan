@@ -5,13 +5,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="关于 | 帆哥" description="不会写代码的售前，用 AI Agent 把想法变成产品">
   <div class="about-page">
 
-    <!-- Hero intro -->
+    <!-- Hero intro + 头像 -->
     <section class="about-hero">
       <div class="hero-accent"></div>
-      <h1>关于帆哥</h1>
-      <p class="lead">
-        <strong>不会写代码的售前解决方案专家</strong>，略懂 SaaS 行业的 KA 销售和渠道生态——但在 AI Agent 的帮助下，把一个个想法变成了能用的产品。
-      </p>
+      <div class="hero-avatar-row">
+        <img src="/images/avatar-cartoon.jpeg" alt="帆哥" class="hero-avatar" />
+        <div class="hero-text">
+          <h1>关于帆哥</h1>
+          <p class="lead">
+            <strong>不会写代码的售前解决方案专家</strong>，略懂 SaaS 行业的 KA 销售和渠道生态——但在 AI Agent 的帮助下，把一个个想法变成了能用的产品。
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Story -->
@@ -136,33 +141,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>🚀 我正在做的事</h2>
       <ul class="clean-list">
         <li><strong>自媒体自动化流水线</strong> — OBS 录制口播 → AI 转录截图 → 一键发布微信公众号，一个人完成一个团队的工作</li>
-        <li><strong>WorkBuddy Skill 开发者</strong> — 围绕内容生产、数据分析、客户沟通搭建了一批可复用的 AI 工作流技能包</li>
+        <li><strong>AI Builder 开发者</strong> — 围绕内容生产、数据分析、客户沟通搭建了一批可复用的 AI 工作流与智能体</li>
         <li><strong>售前 × AI 效率工具</strong> — 用 AI Agent 做方案自动生成、竞品对比、招标分析</li>
         <li><strong>飞书 × AI 深度集成</strong> — 把 AI 能力嵌入日常工作流：审批、报表、客户管理</li>
       </ul>
-    </section>
-
-    <!-- Featured projects -->
-    <section class="card">
-      <h2>💎 精选项目</h2>
-      <div class="project-grid">
-        <div class="project-item">
-          <strong>🎬 AI 自媒体工具箱</strong>
-          <span>视频 → 文章 → 发布全自动，一个人撑起一个内容 IP</span>
-        </div>
-        <div class="project-item">
-          <strong>🤖 WorkBuddy 技能库</strong>
-          <span>内容生产 / 数据分析 / 客户沟通——可复用的 AI Agent 工作流</span>
-        </div>
-        <div class="project-item">
-          <strong>📊 售前 AI 提效方案</strong>
-          <span>用 AI 写方案、做竞品分析、拆招标文件</span>
-        </div>
-        <div class="project-item">
-          <strong>🔗 飞书 AI 自动化</strong>
-          <span>扣子 Bot + Codex 工作流，把 AI 嵌入日常协作</span>
-        </div>
-      </div>
     </section>
 
     <!-- Philosophy -->
@@ -176,45 +158,63 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </p>
     </section>
 
-    <!-- Social -->
-    <section class="card social-card">
+    <!-- QR Code Social Zone -->
+    <section class="card qr-zone">
       <h2>📡 找到我</h2>
-      <div class="social-grid">
-        <a href="https://space.bilibili.com/13472754" target="_blank" rel="noopener" class="social-link">
-          <span class="social-icon">📺</span>
-          <div>
-            <strong>B站</strong>
-            <span>帆哥Benjamin_AI研究院</span>
+      <p class="qr-intro">扫码关注 / 加群，一起聊 AI、聊搞钱、聊用 Agent 干活</p>
+
+      <div class="qr-grid">
+        <!-- 飞书群 -->
+        <div class="qr-card">
+          <div class="qr-img-wrap">
+            <img src="/images/qr-feishu-group.png" alt="飞书AI粉丝群" loading="lazy" />
           </div>
-        </a>
-        <a href="https://www.xiaohongshu.com/user/profile/5c2b8221000000000701bb2d" target="_blank" rel="noopener" class="social-link">
-          <span class="social-icon">📕</span>
-          <div>
-            <strong>小红书</strong>
-            <span>帆哥Benjamin_AI 研究院</span>
-          </div>
-        </a>
-        <a href="https://www.zhihu.com/people/fanshuai001" target="_blank" rel="noopener" class="social-link">
-          <span class="social-icon">💬</span>
-          <div>
-            <strong>知乎</strong>
-            <span>帆哥AI研究院</span>
-          </div>
-        </a>
-        <div class="social-link static">
-          <span class="social-icon">🎵</span>
-          <div>
-            <strong>抖音</strong>
-            <span>帆哥Benjamin@AI研究社</span>
+          <div class="qr-label">
+            <strong>📘 飞书 AI 粉丝群</strong>
+            <span>帆哥AI粉丝群（01）· 帆友科技</span>
           </div>
         </div>
-        <div class="social-link static">
-          <span class="social-icon">📮</span>
-          <div>
-            <strong>公众号/视频号</strong>
+
+        <!-- 微信公众号 -->
+        <div class="qr-card">
+          <div class="qr-img-wrap">
+            <img src="/images/qr-wechat-mp.jpg" alt="帆哥AI研究室" loading="lazy" />
+          </div>
+          <div class="qr-label">
+            <strong>💬 微信公众号</strong>
             <span>帆哥AI研究室</span>
           </div>
         </div>
+
+        <!-- 视频号 -->
+        <div class="qr-card">
+          <div class="qr-img-wrap">
+            <img src="/images/qr-video-account.jpg" alt="帆哥AI研究室视频号" loading="lazy" />
+          </div>
+          <div class="qr-label">
+            <strong>🎬 视频号</strong>
+            <span>帆哥AI研究室</span>
+          </div>
+        </div>
+
+        <!-- 抖音 -->
+        <div class="qr-card">
+          <div class="qr-img-wrap">
+            <img src="/images/qr-douyin.png" alt="帆哥Benjamin@AI研究社" loading="lazy" />
+          </div>
+          <div class="qr-label">
+            <strong>🎵 抖音</strong>
+            <span>帆哥 Benjamin@AI 研究社</span>
+          </div>
+          <div class="douyin-id">抖音号：<strong>584401655</strong></div>
+        </div>
+      </div>
+
+      <!-- 其他平台链接 -->
+      <div class="social-links-row">
+        <a href="https://space.bilibili.com/13472754" target="_blank" rel="noopener">📺 B站 · 帆哥Benjamin_AI研究院</a>
+        <a href="https://www.xiaohongshu.com/user/profile/5c2b8221000000000701bb2d" target="_blank" rel="noopener">📕 小红书 · 帆哥Benjamin_AI 研究院</a>
+        <a href="https://www.zhihu.com/people/fanshuai001" target="_blank" rel="noopener">💬 知乎 · 帆哥AI研究院</a>
       </div>
     </section>
 
@@ -229,19 +229,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   .about-page { max-width: 100%; }
 
-  /* ── Hero ── */
-  .about-hero { text-align: center; padding: 0.5rem 0 2rem; }
+  /* ── Hero + 头像 ── */
+  .about-hero { padding: 0.5rem 0 2rem; }
   .hero-accent {
     width: 60px; height: 3px;
     background: linear-gradient(to right, var(--accent), transparent);
     margin: 0 auto 1.5rem; border-radius: 2px;
   }
-  .about-hero h1 { margin-bottom: 1.2rem; }
+  .hero-avatar-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  .hero-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 4px 16px rgba(184,74,60,0.18);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+  .hero-avatar:hover { transform: scale(1.06); }
+  .hero-text { text-align: left; }
+  .hero-text h1 { margin-bottom: 0.8rem; font-size: var(--fs-h1); }
   .lead {
     font-size: var(--fs-lead);
     color: var(--text-secondary);
-    max-width: 38rem;
-    margin: 0 auto;
     line-height: 1.7;
   }
 
@@ -254,7 +272,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     box-shadow: var(--shadow-sm);
     border: 1px solid rgba(0,0,0,0.04);
   }
-  /* 卡片内 h2 统一用 --fs-h2 */
   .card h2 { margin-top: 0; font-size: var(--fs-h2); }
   .card p { color: var(--text-secondary); font-size: var(--fs-body); }
   .card > p + p { margin-top: 1em; }
@@ -297,7 +314,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     transform: translateY(-1px);
     box-shadow: var(--shadow-sm);
   }
-  /* 核心工具高亮 */
   .tool-item.featured {
     border-left-width: 4px;
     background: linear-gradient(135deg, rgba(184,74,60,0.04), rgba(184,74,60,0.01));
@@ -330,36 +346,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .clean-list li:last-child { border-bottom: none; }
   .clean-list strong { color: var(--text-primary); }
 
-  /* ── Project grid ── */
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 0.9rem;
-    margin-top: 1.3rem;
-  }
-  .project-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding: 1.1rem 1.3rem;
-    background: linear-gradient(135deg, rgba(139,90,43,0.04), rgba(139,90,43,0.01));
-    border-radius: 8px;
-    border-left: 3px solid #8b5a2b;
-    transition: transform 0.15s ease;
-  }
-  .project-item:hover { transform: translateY(-1px); }
-  .project-item strong {
-    font-family: var(--serif-head);
-    font-size: var(--fs-body);
-    font-weight: 600;
-    color: var(--text-primary);
-  }
-  .project-item span {
-    font-size: var(--fs-sm);
-    color: var(--text-light);
-    line-height: 1.5;
-  }
-
   /* ── Philosophy ── */
   .philosophy blockquote {
     border-left: 4px solid var(--accent);
@@ -381,40 +367,98 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-style: normal;
   }
 
-  /* ── Social ── */
-  .social-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0.9rem;
-    margin-top: 1.3rem;
+  /* ════════════════ QR 二维码区域 ════════════════ */
+  .qr-zone { text-align: center; }
+  .qr-intro {
+    font-size: var(--fs-body);
+    color: var(--text-secondary);
+    margin-bottom: 1.8rem;
   }
-  .social-link {
+  .qr-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .qr-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 1rem;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ede8dc;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .qr-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  }
+  .qr-img-wrap {
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f8f6f1;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.18s ease;
-    border: 1px solid #f0ebe1;
+    justify-content: center;
+    border: 1px solid #e8e2d4;
   }
-  .social-link:hover:not(.static) {
-    border-color: var(--accent);
-    background: var(--accent-soft);
-    transform: translateY(-1px);
+  .qr-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
-  .social-link.static { opacity: 0.85; cursor: default; }
-  .social-icon { font-size: 1.4rem; flex-shrink: 0; }
-  .social-link strong {
-    display: block;
+  .qr-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: center;
+  }
+  .qr-label strong {
     font-family: var(--serif-head);
     font-size: var(--fs-body);
     font-weight: 600;
     color: var(--text-primary);
   }
-  .social-link span {
-    font-size: var(--fs-sm);
+  .qr-label span {
+    font-size: var(--fs-xs);
     color: var(--text-light);
+  }
+  .douyin-id {
+    margin-top: 0.2rem;
+    font-size: var(--fs-sm);
+    color: var(--accent);
+    padding: 0.25rem 0.7rem;
+    background: var(--accent-soft);
+    border-radius: 20px;
+  }
+  .douyin-id strong {
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* 其他平台文字链接行 */
+  .social-links-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--rule);
+  }
+  .social-links-row a {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .social-links-row a:hover {
+    color: var(--accent);
   }
 
   /* ── Subscribe ── */
@@ -432,12 +476,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding-bottom: 2px;
   }
 
+  /* ── 响应式 ── */
+  @media (max-width: 900px) {
+    .qr-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-avatar-row { flex-direction: column; text-align: center; }
+    .hero-text { text-align: center; }
+  }
+
   @media (max-width: 700px) {
     .card { padding: 1.5rem 1.3rem; }
     .tool-grid { grid-template-columns: 1fr; }
-    .project-grid { grid-template-columns: 1fr; }
-    .social-grid { grid-template-columns: 1fr; }
+    .qr-grid { grid-template-columns: 1fr; justify-items: center; }
+    .qr-img-wrap { width: 180px; height: 180px; }
+    .social-links-row { flex-direction: column; align-items: center; gap: 0.8rem; }
     .about-hero h1 { font-size: var(--fs-h1); }
     .lead { font-size: var(--fs-body); }
+    .hero-avatar { width: 72px; height: 72px; }
   }
 </style>
