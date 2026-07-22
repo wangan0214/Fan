@@ -59,6 +59,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </ul>
     </section>
 
+    <!-- Featured projects -->
+    <section class="card">
+      <h2>💎 精选项目</h2>
+      <div class="project-grid">
+        <div class="project-item">
+          <strong>🎬 AI 自媒体工具箱</strong>
+          <span>视频 → 文章 → 发布全自动，一个人撑起一个内容 IP</span>
+        </div>
+        <div class="project-item">
+          <strong>🤖 WorkBuddy 技能库</strong>
+          <span>内容生产 / 数据分析 / 客户沟通——可复用的 AI Agent 工作流</span>
+        </div>
+        <div class="project-item">
+          <strong>📊 售前 AI 提效方案</strong>
+          <span>用 AI 写方案、做竞品分析、拆招标文件</span>
+        </div>
+        <div class="project-item">
+          <strong>🔗 飞书 AI 自动化</strong>
+          <span>扣子 Bot + Codex 工作流，把 AI 嵌入日常协作</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Philosophy -->
     <section class="card philosophy">
       <blockquote>
@@ -189,6 +212,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .clean-list li:last-child { border-bottom: none; }
   .clean-list strong { color: var(--text-primary); }
+
+  /* Project grid */
+  .project-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.3rem;
+  }
+  .project-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem 1.2rem;
+    background: linear-gradient(135deg, rgba(139,90,43,0.04), rgba(139,90,43,0.01));
+    border-radius: 8px;
+    border-left: 3px solid #8b5a2b;
+  }
+  .project-item strong {
+    font-family: var(--serif-head);
+    font-size: 0.98rem;
+    color: var(--text-primary);
+  }
+  .project-item span {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
 
   /* Philosophy */
   .philosophy blockquote {
