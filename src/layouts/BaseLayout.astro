@@ -24,15 +24,19 @@ const { title, description = '帆哥的个人主页 · 关于 AI、副业与商�
   </head>
   <body>
     <div class="page-wrapper">
+      <!-- 全宽导航条 -->
       <header class="site-header">
-        <a href="/" class="site-title">帆哥</a>
-        <nav class="site-nav">
-          <a href="/blog">文章</a>
-          <a href="/about">关于</a>
-          <a href="/rss.xml" class="rss-link">RSS</a>
-        </nav>
+        <div class="header-inner">
+          <a href="/" class="site-title">帆哥</a>
+          <nav class="site-nav">
+            <a href="/">首页</a>
+            <a href="/blog">文章</a>
+            <a href="/about">关于</a>
+            <a href="/rss.xml" class="rss-link">RSS</a>
+          </nav>
+        </div>
       </header>
-      <main>
+      <main class="content-area">
         <slot />
       </main>
       <footer class="site-footer">
@@ -58,12 +62,23 @@ const { title, description = '帆哥的个人主页 · 关于 AI、副业与商�
     --accent-soft: rgba(184, 74, 60, 0.08);
     --rule: #e5dfd3;
     --rule-dark: #d4cdc0;
-    --max: 720px;
+    /* 内容区宽度：从 720px 加宽到 1080px */
+    --max: 1080px;
     --serif-head: 'Vollkorn', Georgia, 'Songti SC', 'Noto Serif SC', serif;
     --serif-body: 'Gentium Book Basic', Georgia, 'Songti SC', 'Noto Serif SC', serif;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
     --shadow-md: 0 4px 16px rgba(0,0,0,0.07);
     --radius: 10px;
+
+    /* ── 统一字体层级系统 ── */
+    --fs-display: 2.6rem;    /* 首页 hero 大标题 */
+    --fs-h1: 2.2rem;         /* 页面主标题 */
+    --fs-h2: 1.5rem;         /* 板块标题（统一） */
+    --fs-h3: 1.2rem;         /* 三级标题 */
+    --fs-body: 1rem;         /* 正文 */
+    --fs-lead: 1.08rem;      /* 引导段落 */
+    --fs-sm: 0.9rem;         /* 辅助说明 */
+    --fs-xs: 0.82rem;        /* 最小文字（footer/RSS等） */
   }
 
   * { box-sizing: border-box; }
@@ -89,82 +104,90 @@ const { title, description = '帆哥的个人主页 · 关于 AI、副业与商�
     flex-direction: column;
   }
 
-  /* ── Header ── */
+  /* ═══════════════ Header — 全宽毛玻璃导航条 ═══════════════ */
   .site-header {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 2rem 1.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 100%;
+    background: rgba(245, 240, 232, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--rule);
-    background: rgba(245, 240, 232, 0.85);
-    backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: box-shadow 0.25s ease;
+  }
+  .site-header.scrolled {
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  .header-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0.85rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .site-title {
     font-family: var(--serif-head);
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--text-primary);
     text-decoration: none;
     letter-spacing: -0.01em;
   }
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+  }
   .site-nav a {
-    margin-left: 1.5rem;
+    padding: 0.45rem 0.9rem;
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 400;
-    transition: color 0.2s ease;
-    position: relative;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    transition: color 0.2s ease, background 0.2s ease;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
   }
-  .site-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 1.5px;
-    background: var(--accent);
-    transition: width 0.25s ease;
+  .site-nav a:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
   }
-  .site-nav a:hover { color: var(--accent); }
-  .site-nav a:hover::after { width: 100%; }
   .rss-link {
     opacity: 0.7;
-    font-size: 0.82rem;
+    font-size: var(--fs-xs);
+    padding: 0.45rem 0.6rem;
   }
 
-  /* ── Main ── */
-  main {
+  /* ═══════════════ Main — 加宽内容区 ═══════════════ */
+  .content-area {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 2.5rem 1.5rem 4rem;
+    padding: 3rem 2rem 4rem;
     flex: 1;
+    width: 100%;
   }
 
-  /* ── Footer ── */
+  /* ═══════════════ Footer ═══════════════ */
   footer.site-footer {
     background: var(--bg-deep);
     color: #9a948a;
-    font-size: 0.82rem;
+    font-size: var(--fs-xs);
     margin-top: auto;
   }
   .footer-inner {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 2.5rem 1.5rem;
+    padding: 2.5rem 2rem;
     text-align: center;
   }
   .footer-inner p { margin: 0.3em 0; }
-  .footer-sub { opacity: 0.65; font-size: 0.78rem; }
+  .footer-sub { opacity: 0.65; }
   footer.site-footer a { color: #bfb8aa; text-decoration: none; transition: color 0.2s; }
   footer.site-footer a:hover { color: #ddd4c4; }
 
-  /* ── Typography ── */
+  /* ═══════════════ Typography — 统一层级 ═══════════════ */
   a { color: var(--accent); text-decoration: none; }
   a:hover { color: var(--accent-dark); }
   h1, h2, h3, h4 {
@@ -174,11 +197,11 @@ const { title, description = '帆哥的个人主页 · 关于 AI、副业与商�
     color: var(--text-primary);
     letter-spacing: -0.015em;
   }
-  h1 { font-size: 2.6rem; font-weight: 700; }
-  h2 { font-size: 1.65rem; margin-top: 2.5rem; }
-  h3 { font-size: 1.3rem; }
+  h1 { font-size: var(--fs-h1); font-weight: 700; }
+  h2 { font-size: var(--fs-h2); margin-top: 2.5rem; }
+  h3 { font-size: var(--fs-h3); }
 
-  /* ── Content card (for post pages) ── */
+  /* ═══════════════ Content card (for post pages) ═══════════════ */
   .prose { max-width: 100%; }
   .prose p { margin: 1.3em 0; }
   .prose ul, .prose ol { padding-left: 1.5em; margin: 1.2em 0; }
@@ -221,12 +244,27 @@ const { title, description = '帆哥的个人主页 · 关于 AI、副业与商�
     margin: 2.5em 0;
   }
 
+  @media (max-width: 900px) {
+    :root { --max: 100%; }
+    .header-inner { padding: 0.75rem 1.2rem; }
+    .content-area { padding: 2rem 1.2rem 3rem; }
+  }
   @media (max-width: 600px) {
     html { font-size: 16px; }
-    .site-header { padding: 1.2rem 1rem 0.8rem; }
-    .site-nav a { margin-left: 1rem; font-size: 0.86rem; }
-    main { padding: 1.5rem 1rem 3rem; }
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.4rem; }
+    .header-inner { padding: 0.65rem 1rem; }
+    .site-nav a { padding: 0.35rem 0.6rem; font-size: var(--fs-xs); }
+    .content-area { padding: 1.5rem 1rem 3rem; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.35rem; }
   }
 </style>
+
+<script>
+  // 滚动时给 header 加阴影
+  const header = document.querySelector('.site-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
+</script>
