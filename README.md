@@ -1,4 +1,4 @@
-<!-- 版本：v1.1.0 ｜ 更新时间：2026-07-21 16:51 (UTC+8) ｜ 说明：定位调整为 Cloudflare Pages 主部署方案（境外托管·免 ICP 备案），新增 wrangler.toml / .gitignore，部署章节重写为 Cloudflare 优先 -->
+<!-- 版本：v1.2.0 ｜ 更新时间：2026-07-22 22:10 (UTC+8) ｜ 说明：Git 连接章节具体化到 wangan0214/Fan 仓库，补充 gh auth login 推送认证与 Cloudflare Pages 连接分步指引，强调上线前必须修改 astro.config.mjs 的 site 域名 -->
 
 # 帆哥个人主页（Astro 静态站）
 
@@ -47,15 +47,48 @@ npm run preview  # 预览构建结果
 
 Cloudflare Pages 服务器在**境外**，所以**不需要 ICP 备案**；自带全球 CDN，国内访问相对最稳。本站是纯静态输出（`output: 'static'`），**无需任何 Astro adapter**，直接部署即可。
 
-### 方式一：Git 连接（推荐，推送即自动部署）
+### 方式一：Git 连接（推荐，本仓库已配好 remote）
 
-1. 把本仓库推到 GitHub / GitLab。
-2. Cloudflare 后台 → **Pages** → 连接 Git 仓库。
-3. 构建配置：
-   - Build command：`npm run build`
-   - Build output directory：`dist`
-4. 部署完成后，在 Pages 项目里 **添加自定义域**（把域名 DNS 改为 Cloudflare 的 NS，或加 CNAME 记录）。
-5. **改域名**：把 `astro.config.mjs` 的 `site` 改成你的正式域名，重新构建部署，RSS / sitemap 的绝对链接才会正确。
+> 前提：本仓库 git 已初始化，`origin` 已指向 `https://github.com/wangan0214/Fan.git`，首次提交在 `main` 分支。你只需做「登录 GitHub → 推送 → 连 Cloudflare → 绑域名」四步。
+
+**第 1 步 · GitHub 推送认证（仅第一次，之后免密）**
+
+本机已装 GitHub CLI（`gh`）。在终端运行：
+
+```bash
+gh auth login
+```
+
+按屏幕提示（第一次配置照选即可）：
+- `What account do you want to log into?` → 选 **GitHub.com**
+- `How would you like to authenticate?` → 选 **Login with a web browser**（弹 GitHub 网页点 Authorize）或 **Paste an authentication token**（粘 PAT）
+- 若选 Token：去 GitHub → Settings → Developer settings → Personal access tokens 生成一个带 `repo` 权限的 token 粘过来。
+
+登录后 `gh` 自动帮 git 配好凭据，以后 `git push` 不再输密码。
+
+**第 2 步 · 推送代码**
+
+```bash
+cd /Users/fanshuai/Documents/搞钱集中营/personal-homepage
+git push -u origin main
+```
+
+`-u` 仅第一次需要，之后直接 `git push`。成功后去 GitHub 看 `wangan0214/Fan` 已有代码。
+
+**第 3 步 · 连 Cloudflare Pages（推送即自动部署）**
+
+1. [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**。
+2. 授权 Cloudflare 访问 GitHub，选中 `wangan0214/Fan` 仓库。
+3. 构建配置（关键三项）：Framework preset 选 **Astro**；Build command `npm run build`；Build output directory `dist`。
+4. **Save and Deploy**，约 1–2 分钟，得到 `*.pages.dev` 临时域名（先验证效果）。
+
+**第 4 步 · 绑自己的域名（上线前必做）**
+
+> ⚠️ 上线前必须把 `astro.config.mjs` 的 `site` 改成真实域名，否则 RSS / sitemap 绝对链接错误。改完 `git push` 即可自动重新部署（Cloudflare 监听到 push 会自动重建）。
+
+1. Pages 项目 → **Custom domains** → 输入域名（如 `fanshuai.com`）。
+2. 按提示把域名 DNS 托管到 Cloudflare（改 NS 为 Cloudflare 给的两条），或在现有 DNS 加 CNAME 指向 `xxx.pages.dev`。
+3. DNS 生效后域名直接可访问，**免备案**（服务器在境外）。
 
 ### 方式二：Wrangler CLI 直接部署（不用 Git）
 

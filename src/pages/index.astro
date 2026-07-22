@@ -10,95 +10,285 @@ const posts = (await getCollection('blog'))
 ---
 
 <BaseLayout title="帆哥">
+  <!-- ── Hero ── -->
   <section class="hero">
+    <div class="hero-accent"></div>
+    <p class="hero-label">个人主页</p>
     <h1>帆哥</h1>
     <p class="tagline">不会写代码的售前，用 AI Agent 把想法变成产品。</p>
     <p class="intro">
-      十年 B2B SaaS 售前解决方案专家，略懂 KA 销售与渠道生态。2025 年 AI coding agent 爆发后，我开始用自然语言“写代码”——描述想要什么，让 AI 帮我实现。这里记录我用 AI 构建数字产品、跑自媒体自动化、以及给售前提效的实践。
+      十年 B2B SaaS 售前解决方案专家，略懂 KA 销售与渠道生态。2025 年 AI coding agent 爆发后，我开始用自然语言"写代码"——描述想要什么，让 AI 帮我实现。这里记录我用 AI 构建数字产品、跑自媒体自动化、以及给售前提效的实践。
     </p>
-    <a class="cta" href="/blog">读文章 →</a>
+    <div class="hero-actions">
+      <a class="cta cta-primary" href="/blog">读文章 →</a>
+      <a class="cta cta-secondary" href="/about">关于我</a>
+    </div>
   </section>
 
-  <section class="recent">
+  <!-- ── What I write ── -->
+  <section class="topics card">
+    <h2>我会写什么</h2>
+    <div class="topic-grid">
+      <div class="topic-item">
+        <span class="topic-icon">🤖</span>
+        <div>
+          <strong>AI 与副业</strong>
+          <p>怎么用 AI 杠杆把个人能力放大</p>
+        </div>
+      </div>
+      <div class="topic-item">
+        <span class="topic-icon">🔍</span>
+        <div>
+          <strong>商业化</strong>
+          <p>从需求信号反推机会、验证、执行、复盘</p>
+        </div>
+      </div>
+      <div class="topic-item">
+        <span class="topic-icon">🛠</span>
+        <div>
+          <strong>工具与方法</strong>
+          <p>我自己在用的系统</p>
+        </div>
+      </div>
+    </div>
+    <p class="topic-note">写得慢，但尽量诚实。</p>
+  </section>
+
+  <!-- ── Recent posts ── -->
+  <section class="recent card">
     <h2>近期文章</h2>
     <ul class="post-list">
       {
-        posts.map((post) => (
+        posts.map((post, i) => (
           <li>
+            <span class="post-index">{String(i + 1).padStart(2, '0')}</span>
             <a href={`/blog/${post.id}/`}>{post.data.title}</a>
             <span class="date"><FormattedDate date={post.data.date} /></span>
           </li>
         ))
       }
     </ul>
-    <p class="more"><a href="/blog">查看全部 →</a></p>
+    <p class="more"><a href="/blog">查看全部文章 →</a></p>
+  </section>
+
+  <!-- ── CTA bar ── -->
+  <section class="bottom-cta">
+    <p>如果你也想搭一个类似的站点，可以看看仓库里的 README —— 十分钟就能起来。</p>
+    <a href="https://github.com/wangan0214/Fan" target="_blank" rel="noopener">GitHub →</a>
   </section>
 </BaseLayout>
 
 <style>
+  /* ── Hero ── */
   .hero {
     text-align: center;
-    padding: 3rem 0 2.5rem;
+    padding: 3.5rem 0 3rem;
+    position: relative;
+  }
+  .hero-accent {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+  }
+  .hero-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-light);
+    margin: 0 0 0.6rem;
   }
   .hero h1 {
-    font-size: 3rem;
-    margin: 0 0 0.5rem;
+    font-size: 3.4rem;
+    font-weight: 700;
+    margin: 0 0 0.8rem;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   .tagline {
+    font-family: var(--serif-head);
     font-style: italic;
-    font-size: 1.25rem;
-    color: var(--muted);
-    margin: 0 0 1rem;
+    font-size: 1.28rem;
+    color: var(--text-secondary);
+    margin: 0 0 1.4rem;
+    line-height: 1.45;
   }
   .intro {
-    max-width: 32rem;
-    margin: 0 auto 1.5rem;
-    color: var(--muted);
+    max-width: 34rem;
+    margin: 0 auto 2rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.75;
   }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  /* Buttons */
   .cta {
     display: inline-block;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 0.5rem 1.25rem;
+    padding: 0.65rem 1.6rem;
     border-radius: 999px;
     text-decoration: none;
-    transition: all 0.15s ease;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: all 0.22s ease;
+    cursor: pointer;
   }
-  .cta:hover {
+  .cta-primary {
     background: var(--accent);
     color: #fff;
+    box-shadow: 0 2px 10px rgba(184, 74, 60, 0.3);
   }
-  .recent {
-    border-top: 1px solid var(--rule);
-    padding-top: 2rem;
+  .cta-primary:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 4px 18px rgba(184, 74, 60, 0.4);
+    transform: translateY(-1px);
+    color: #fff;
   }
+  .cta-secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1.5px solid var(--rule-dark);
+  }
+  .cta-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  /* ── Card sections ── */
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 2.2rem 2rem;
+    margin-top: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  /* ── Topics ── */
+  .topics h2 { margin-top: 0; }
+  .topic-grid {
+    display: grid;
+    gap: 1.2rem;
+    margin: 1.5rem 0 1rem;
+  }
+  .topic-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(0,0,0,0.015);
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+  .topic-item:hover { background: rgba(0,0,0,0.03); }
+  .topic-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .topic-item strong {
+    display: block;
+    font-family: var(--serif-head);
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.15rem;
+  }
+  .topic-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+  .topic-note {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.92rem;
+    margin: 0.5rem 0 0;
+  }
+
+  /* ── Recent posts ── */
+  .recent h2 { margin-top: 0; }
   .post-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 1.2rem 0 0.5rem;
   }
   .post-list li {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
     gap: 1rem;
-    padding: 0.65rem 0;
-    border-bottom: 1px dotted #e0dcd2;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid #f0ebe1;
+    transition: background 0.15s ease;
+  }
+  .post-list li:last-child { border-bottom: none; }
+  .post-list li:hover { background: rgba(184, 74, 60, 0.02); margin: 0 -0.5rem; padding-left: 0.5rem; padding-right: 0.5rem; border-radius: 6px; }
+  .post-index {
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 0.72rem;
+    color: var(--text-light);
+    opacity: 0.5;
+    min-width: 1.5em;
   }
   .post-list a {
-    color: var(--text);
+    color: var(--text-primary);
     text-decoration: none;
-    font-size: 1.05rem;
+    font-size: 1.02rem;
+    font-weight: 500;
+    flex: 1;
+    transition: color 0.18s ease;
   }
-  .post-list a:hover {
-    color: var(--accent);
-  }
+  .post-list a:hover { color: var(--accent); }
   .date {
-    color: var(--muted);
-    font-size: 0.85rem;
+    color: var(--text-light);
+    font-size: 0.82rem;
     white-space: nowrap;
   }
   .more {
-    margin-top: 1rem;
+    margin: 1rem 0 0;
+    text-align: right;
+  }
+  .more a {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  /* ── Bottom CTA ── */
+  .bottom-cta {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin-top: 2rem;
+    color: var(--text-light);
+    font-size: 0.93rem;
+  }
+  .bottom-cta p { margin: 0 0 0.8rem; }
+  .bottom-cta a {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+  }
+  .bottom-cta a:hover { color: var(--accent-dark); }
+
+  @media (max-width: 600px) {
+    .hero { padding: 2.5rem 0 2rem; }
+    .hero h1 { font-size: 2.4rem; }
+    .tagline { font-size: 1.1rem; }
+    .card { padding: 1.5rem 1.2rem; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .cta { width: 100%; max-width: 220px; text-align: center; }
   }
 </style>

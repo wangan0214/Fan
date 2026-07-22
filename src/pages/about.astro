@@ -3,66 +3,266 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="关于 | 帆哥" description="不会写代码的售前，用 AI Agent 把想法变成产品">
-  <h1>关于帆哥</h1>
+  <div class="about-page">
 
-  <p>
-    <strong>不会写代码的售前解决方案专家</strong>，略懂 SaaS 行业的 KA 销售和渠道生态——但在 AI Agent 的帮助下，把一个个想法变成了能用的产品。
-  </p>
-  <p>
-    做了十年 B2B SaaS，最熟悉的事是给客户讲方案、做 Demo、搭渠道体系。2025 年 AI coding agent 爆发后，我开始用自然语言“写代码”——不是写 <code>class</code> 和 <code>function</code>，而是描述我想要什么，让 AI 帮我实现。
-  </p>
-  <p>
-    我的核心命题：<em>一个不懂编程的业务人，能不能靠 AI Agent 构建自己的数字产品？</em> 答案是可以。我用的就是这些工具。
-  </p>
+    <!-- Hero intro -->
+    <section class="about-hero">
+      <div class="hero-accent"></div>
+      <h1>关于帆哥</h1>
+      <p class="lead">
+        <strong>不会写代码的售前解决方案专家</strong>，略懂 SaaS 行业的 KA 销售和渠道生态——但在 AI Agent 的帮助下，把一个个想法变成了能用的产品。
+      </p>
+    </section>
 
-  <h2>我的 AI 工具箱</h2>
-  <ul>
-    <li><strong>Claude</strong>：深度思考、方案撰写、内容策划——我的“第二大脑”</li>
-    <li><strong>Codex（WorkBuddy）</strong>：零代码构建自动化工作流，运维项目、生成内容、分析数据</li>
-    <li><strong>扣子（Coze）</strong>：搭 Chatbot、做智能体，接入飞书和微信公众号</li>
-    <li><strong>AI-Media2Doc</strong>：口播视频一键转公众号图文，一个人撑起内容生产</li>
-  </ul>
+    <!-- Story -->
+    <section class="card">
+      <h2>我的故事</h2>
+      <p>
+        做了十年 B2B SaaS，最熟悉的事是给客户讲方案、做 Demo、搭渠道体系。2025 年 AI coding agent 爆发后，我开始用自然语言"写代码"——不是写 <code>class</code> 和 <code>function</code>，而是描述我想要什么，让 AI 帮我实现。
+      </p>
+      <p>
+        我的核心命题：<em>一个不懂编程的业务人，能不能靠 AI Agent 构建自己的数字产品？</em> 答案是可以。我用的就是这些工具。
+      </p>
+    </section>
 
-  <h2>我正在做的事</h2>
-  <ul>
-    <li><strong>自媒体自动化流水线</strong>：OBS 录制口播 → AI 转录截图 → 一键发布微信公众号，一个人完成一个团队的工作</li>
-    <li><strong>WorkBuddy Agent Skills 开发者</strong>：围绕内容生产、数据分析、客户沟通搭建了一批可复用的 AI 工作流</li>
-    <li><strong>售前 × AI 效率工具</strong>：用 AI Agent 做方案自动生成、竞品对比、招标分析</li>
-    <li><strong>飞书 × AI 深度集成</strong>：把 AI 能力嵌入日常工作流——审批、报表、客户管理</li>
-  </ul>
+    <!-- Toolkit -->
+    <section class="card">
+      <h2>🛠 我的 AI 工具箱</h2>
+      <div class="tool-grid">
+        <div class="tool-item">
+          <strong>Claude</strong>
+          <span>深度思考、方案撰写、内容策划——我的"第二大脑"</span>
+        </div>
+        <div class="tool-item">
+          <strong>WorkBuddy / Codex</strong>
+          <span>零代码构建自动化工作流，运维项目、生成内容、分析数据</span>
+        </div>
+        <div class="tool-item">
+          <strong>扣子（Coze）</strong>
+          <span>搭 Chatbot、做智能体，接入飞书和微信公众号</span>
+        </div>
+        <div class="tool-item">
+          <strong>AI-Media2Doc</strong>
+          <span>口播视频一键转公众号图文，一个人撑起内容生产</span>
+        </div>
+      </div>
+    </section>
 
-  <h2>我的理念</h2>
-  <blockquote>
-    代码不再是工程师的特权，而是每个想解决问题的业务人的工具。<br />
-    ——帆哥
-  </blockquote>
-  <p>
-    我不做“技术产品”，我做的是“用技术解决业务问题”的方案。我面向的是那些想用 AI 提升效率、但又不想从零学编程的销售、售前、运营。
-  </p>
+    <!-- Current work -->
+    <section class="card">
+      <h2>🚀 我正在做的事</h2>
+      <ul class="clean-list">
+        <li><strong>自媒体自动化流水线</strong> — OBS 录制口播 → AI 转录截图 → 一键发布微信公众号，一个人完成一个团队的工作</li>
+        <li><strong>WorkBuddy Agent Skills 开发者</strong> — 围绕内容生产、数据分析、客户沟通搭建了一批可复用的 AI 工作流</li>
+        <li><strong>售前 × AI 效率工具</strong> — 用 AI Agent 做方案自动生成、竞品对比、招标分析</li>
+        <li><strong>飞书 × AI 深度集成</strong> — 把 AI 能力嵌入日常工作流：审批、报表、客户管理</li>
+      </ul>
+    </section>
 
-  <h2>找到我</h2>
-  <ul>
-    <li>哔哩哔哩（B站）：<a href="https://space.bilibili.com/13472754">帆哥Benjamin_AI研究院</a></li>
-    <li>小红书：<a href="https://www.xiaohongshu.com/user/profile/5c2b8221000000000701bb2d">帆哥Benjamin_AI 研究院</a></li>
-    <li>抖音：帆哥Benjamin@AI研究社（抖音号 584401655）</li>
-    <li>微信公众号 / 视频号：帆哥AI研究室</li>
-    <li>知乎：<a href="https://www.zhihu.com/people/fanshuai001">帆哥AI研究院</a></li>
-  </ul>
+    <!-- Philosophy -->
+    <section class="card philosophy">
+      <blockquote>
+        "代码不再是工程师的特权，而是每个想解决问题的业务人的工具。"
+        <cite>—— 帆哥</cite>
+      </blockquote>
+      <p>
+        我不做"技术产品"，我做的是"用技术解决业务问题"的方案。我面向的是那些想用 AI 提升效率、但又不想从零学编程的销售、售前、运营。
+      </p>
+    </section>
 
-  <h2>订阅</h2>
-  <p>不想错过更新，可以订阅 <a href="/rss.xml">RSS</a>。</p>
+    <!-- Social -->
+    <section class="card social-card">
+      <h2>📡 找到我</h2>
+      <div class="social-grid">
+        <a href="https://space.bilibili.com/13472754" target="_blank" rel="noopener" class="social-link">
+          <span class="social-icon">📺</span>
+          <div>
+            <strong>B站</strong>
+            <span>帆哥Benjamin_AI研究院</span>
+          </div>
+        </a>
+        <a href="https://www.xiaohongshu.com/user/profile/5c2b8221000000000701bb2d" target="_blank" rel="noopener" class="social-link">
+          <span class="social-icon">📕</span>
+          <div>
+            <strong>小红书</strong>
+            <span>帆哥Benjamin_AI 研究院</span>
+          </div>
+        </a>
+        <a href="https://www.zhihu.com/people/fanshuai001" target="_blank" rel="noopener" class="social-link">
+          <span class="social-icon">💬</span>
+          <div>
+            <strong>知乎</strong>
+            <span>帆哥AI研究院</span>
+          </div>
+        </a>
+        <div class="social-link static">
+          <span class="social-icon">🎵</span>
+          <div>
+            <strong>抖音</strong>
+            <span>帆哥Benjamin@AI研究社</span>
+          </div>
+        </div>
+        <div class="social-link static">
+          <span class="social-icon">📮</span>
+          <div>
+            <strong>公众号/视频号</strong>
+            <span>帆哥AI研究室</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribe -->
+    <section class="subscribe-bar">
+      <p>不想错过更新？订阅 <a href="/rss.xml">RSS Feed</a></p>
+    </section>
+
+  </div>
 </BaseLayout>
 
 <style>
-  h1 { font-size: 2.4rem; margin-bottom: 1.5rem; }
-  h2 { font-size: 1.5rem; margin-top: 2.5rem; }
-  ul { padding-left: 1.25rem; }
-  li { margin: 0.4rem 0; }
-  blockquote {
+  .about-page { max-width: 100%; }
+
+  .about-hero { text-align: center; padding: 1rem 0 2rem; }
+  .hero-accent {
+    width: 50px; height: 3px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    margin: 0 auto 1.5rem; border-radius: 2px;
+  }
+  .about-hero h1 { margin-bottom: 1.2rem; }
+  .lead {
+    font-size: 1.12rem;
+    color: var(--text-secondary);
+    max-width: 34rem;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 2rem 2rem;
+    margin-top: 1.8rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .card h2 { margin-top: 0; font-size: 1.4rem; }
+  .card p { color: var(--text-secondary); }
+
+  /* Tool grid */
+  .tool-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.3rem;
+  }
+  .tool-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 1.2rem;
+    background: rgba(0,0,0,0.02);
+    border-radius: 8px;
     border-left: 3px solid var(--accent);
-    margin: 1.5rem 0;
-    padding: 0.25rem 1rem;
-    color: var(--muted);
+  }
+  .tool-item strong {
+    font-family: var(--serif-head);
+    font-size: 1rem;
+    color: var(--text-primary);
+  }
+  .tool-item span {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  /* Clean list */
+  .clean-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.2rem 0 0;
+  }
+  .clean-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0ebe1;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .clean-list li:last-child { border-bottom: none; }
+  .clean-list strong { color: var(--text-primary); }
+
+  /* Philosophy */
+  .philosophy blockquote {
+    border-left: 4px solid var(--accent);
+    margin: 1rem 0 1.5rem;
+    padding: 1.2rem 1.5rem;
+    background: linear-gradient(135deg, var(--accent-soft), transparent);
+    border-radius: 0 var(--radius) var(--radius) 0);
     font-style: italic;
+    font-size: 1.12rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  .philosophy cite {
+    display: block;
+    text-align: right;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  /* Social */
+  .social-grid {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1.3rem;
+  }
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.18s ease;
+    border: 1px solid #f0ebe1;
+  }
+  .social-link:hover:not(.static) {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-1px);
+  }
+  .social-link.static { opacity: 0.85; cursor: default; }
+  .social-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .social-link strong {
+    display: block;
+    font-family: var(--serif-head);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+  }
+  .social-link span {
+    font-size: 0.84rem;
+    color: var(--text-light);
+  }
+
+  /* Subscribe */
+  .subscribe-bar {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 1.8rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+  .subscribe-bar a {
+    color: var(--accent);
+    font-weight: 600;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .card { padding: 1.4rem 1.2rem; }
+    .about-hero h1 { font-size: 2rem; }
+    .lead { font-size: 1rem; }
   }
 </style>

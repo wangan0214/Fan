@@ -18,91 +18,215 @@ const { title, description = '帆哥的个人主页 · 关于 AI、副业与商�
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,600;1,400&family=Gentium+Book+Basic:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,600;0,700;1,400&family=Gentium+Book+Basic:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <header class="site-header">
-      <a href="/" class="site-title">帆哥</a>
-      <nav class="site-nav">
-        <a href="/blog">文章</a>
-        <a href="/about">关于</a>
-        <a href="/rss.xml">RSS</a>
-      </nav>
-    </header>
-    <main>
-      <slot />
-    </main>
-    <footer class="site-footer">
-      <p>© {new Date().getFullYear()} 帆哥 · 由 <a href="https://astro.build">Astro</a> 构建</p>
-    </footer>
+    <div class="page-wrapper">
+      <header class="site-header">
+        <a href="/" class="site-title">帆哥</a>
+        <nav class="site-nav">
+          <a href="/blog">文章</a>
+          <a href="/about">关于</a>
+          <a href="/rss.xml" class="rss-link">RSS</a>
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <p>© {new Date().getFullYear()} 帆哥 · 用 AI 构建数字产品</p>
+          <p class="footer-sub">由 <a href="https://astro.build">Astro</a> 驱动 · 托管于 <a href="https://pages.cloudflare.com">Cloudflare Pages</a></p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
 
 <style is:global>
   :root {
-    --bg: #fbfaf7;
-    --text: #1f1d1a;
-    --muted: #6b665d;
-    --accent: #9a3b3b;
-    --rule: #e7e3da;
-    --max: 680px;
-    --serif-head: 'Vollkorn', Georgia, 'Songti SC', serif;
-    --serif-body: 'Gentium Book Basic', Georgia, 'Songti SC', serif;
+    --bg-deep: #1a1814;
+    --bg-warm: #f5f0e8;
+    --bg-card: #ffffff;
+    --text-primary: #1f1d1a;
+    --text-secondary: #5c574e;
+    --text-light: #8a8479;
+    --accent: #b84a3c;
+    --accent-dark: #923828;
+    --accent-soft: rgba(184, 74, 60, 0.08);
+    --rule: #e5dfd3;
+    --rule-dark: #d4cdc0;
+    --max: 720px;
+    --serif-head: 'Vollkorn', Georgia, 'Songti SC', 'Noto Serif SC', serif;
+    --serif-body: 'Gentium Book Basic', Georgia, 'Songti SC', 'Noto Serif SC', serif;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.07);
+    --radius: 10px;
   }
+
   * { box-sizing: border-box; }
-  html { font-size: 18px; }
+  html { font-size: 17px; }
+
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
+    background: var(--bg-warm);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(184, 74, 60, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(180, 140, 80, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-primary);
     font-family: var(--serif-body);
-    line-height: 1.75;
+    line-height: 1.78;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+
+  .page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
   .site-header {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 2.5rem 1.25rem 1rem;
+    padding: 2rem 1.5rem 1rem;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
+    border-bottom: 1px solid var(--rule);
+    background: rgba(245, 240, 232, 0.85);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
   .site-title {
     font-family: var(--serif-head);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
     text-decoration: none;
+    letter-spacing: -0.01em;
   }
   .site-nav a {
-    margin-left: 1.25rem;
-    color: var(--muted);
+    margin-left: 1.5rem;
+    color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    font-weight: 400;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  .site-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width 0.25s ease;
   }
   .site-nav a:hover { color: var(--accent); }
+  .site-nav a:hover::after { width: 100%; }
+  .rss-link {
+    opacity: 0.7;
+    font-size: 0.82rem;
+  }
+
+  /* ── Main ── */
   main {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 1rem 1.25rem 4rem;
+    padding: 2.5rem 1.5rem 4rem;
+    flex: 1;
   }
+
+  /* ── Footer ── */
   footer.site-footer {
+    background: var(--bg-deep);
+    color: #9a948a;
+    font-size: 0.82rem;
+    margin-top: auto;
+  }
+  .footer-inner {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 2rem 1.25rem 3rem;
-    color: var(--muted);
-    font-size: 0.85rem;
-    border-top: 1px solid var(--rule);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
   }
-  footer.site-footer a { color: var(--muted); }
-  a { color: var(--accent); }
+  .footer-inner p { margin: 0.3em 0; }
+  .footer-sub { opacity: 0.65; font-size: 0.78rem; }
+  footer.site-footer a { color: #bfb8aa; text-decoration: none; transition: color 0.2s; }
+  footer.site-footer a:hover { color: #ddd4c4; }
+
+  /* ── Typography ── */
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-dark); }
   h1, h2, h3, h4 {
     font-family: var(--serif-head);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.25;
-    color: var(--text);
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+  }
+  h1 { font-size: 2.6rem; font-weight: 700; }
+  h2 { font-size: 1.65rem; margin-top: 2.5rem; }
+  h3 { font-size: 1.3rem; }
+
+  /* ── Content card (for post pages) ── */
+  .prose { max-width: 100%; }
+  .prose p { margin: 1.3em 0; }
+  .prose ul, .prose ol { padding-left: 1.5em; margin: 1.2em 0; }
+  .prose li { margin: 0.4em 0; }
+  .prose blockquote {
+    border-left: 3px solid var(--accent);
+    margin: 1.5em 0;
+    padding: 0.8em 1.2em;
+    background: var(--accent-soft);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  .prose code {
+    background: rgba(0,0,0,0.05);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.88em;
+  }
+  .prose pre {
+    background: var(--bg-deep);
+    color: #d4cfc4;
+    padding: 1.2em 1.4em;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin: 1.5em 0;
+  }
+  .prose img {
+    max-width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    margin: 1.5em 0;
+  }
+  .prose hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--rule), transparent);
+    margin: 2.5em 0;
+  }
+
+  @media (max-width: 600px) {
+    html { font-size: 16px; }
+    .site-header { padding: 1.2rem 1rem 0.8rem; }
+    .site-nav a { margin-left: 1rem; font-size: 0.86rem; }
+    main { padding: 1.5rem 1rem 3rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.4rem; }
   }
 </style>
