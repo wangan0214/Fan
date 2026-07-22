@@ -1,0 +1,108 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = '帆哥的个人主页 · 关于 AI、副业与商业化' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="帆哥" href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,600;1,400&family=Gentium+Book+Basic:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/" class="site-title">帆哥</a>
+      <nav class="site-nav">
+        <a href="/blog">文章</a>
+        <a href="/about">关于</a>
+        <a href="/rss.xml">RSS</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>© {new Date().getFullYear()} 帆哥 · 由 <a href="https://astro.build">Astro</a> 构建</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #fbfaf7;
+    --text: #1f1d1a;
+    --muted: #6b665d;
+    --accent: #9a3b3b;
+    --rule: #e7e3da;
+    --max: 680px;
+    --serif-head: 'Vollkorn', Georgia, 'Songti SC', serif;
+    --serif-body: 'Gentium Book Basic', Georgia, 'Songti SC', serif;
+  }
+  * { box-sizing: border-box; }
+  html { font-size: 18px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif-body);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .site-header {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .site-title {
+    font-family: var(--serif-head);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .site-nav a {
+    margin-left: 1.25rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .site-nav a:hover { color: var(--accent); }
+  main {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 1rem 1.25rem 4rem;
+  }
+  footer.site-footer {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--rule);
+  }
+  footer.site-footer a { color: var(--muted); }
+  a { color: var(--accent); }
+  h1, h2, h3, h4 {
+    font-family: var(--serif-head);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--text);
+  }
+</style>

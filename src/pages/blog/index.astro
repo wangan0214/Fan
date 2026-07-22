@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="文章 | 帆哥" description="帆哥的文章列表">
+  <h1>文章</h1>
+  <ul class="post-list">
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+          <span class="date"><FormattedDate date={post.data.date} /></span>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
+
+<style>
+  h1 { font-size: 2.4rem; margin-bottom: 1.5rem; }
+  .post-list {
+    list-style: none;
+    padding: 0;
+  }
+  .post-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px dotted #e0dcd2;
+  }
+  .post-list a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  .post-list a:hover {
+    color: var(--accent);
+  }
+  .date {
+    color: var(--muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+</style>

@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article>
+    <header class="post-header">
+      <h1>{post.data.title}</h1>
+      <p class="meta">
+        <FormattedDate date={post.data.date} />
+        {post.data.tags.length ? ' · ' + post.data.tags.join(' / ') : ''}
+      </p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <p class="back"><a href="/blog">← 返回文章列表</a></p>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-header {
+    margin-bottom: 2rem;
+  }
+  .post-header h1 {
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  .prose {
+    font-size: 1.05rem;
+  }
+  .prose :global(p) {
+    margin: 1.1rem 0;
+  }
+  .prose :global(h2) {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+  }
+  .prose :global(h3) {
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+  }
+  .prose :global(a) {
+    color: var(--accent);
+  }
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--accent);
+    margin: 1.5rem 0;
+    padding: 0.25rem 1rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .prose :global(pre) {
+    background: #1f1d1a;
+    color: #fbfaf7;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow: auto;
+    font-size: 0.9rem;
+  }
+  .prose :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .prose :global(img) {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  .back {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+</style>
