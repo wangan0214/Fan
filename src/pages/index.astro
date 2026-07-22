@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 8);
+---
+
+<BaseLayout title="帆哥">
+  <section class="hero">
+    <h1>帆哥</h1>
+    <p class="tagline">不会写代码的售前，用 AI Agent 把想法变成产品。</p>
+    <p class="intro">
+      十年 B2B SaaS 售前解决方案专家，略懂 KA 销售与渠道生态。2025 年 AI coding agent 爆发后，我开始用自然语言“写代码”——描述想要什么，让 AI 帮我实现。这里记录我用 AI 构建数字产品、跑自媒体自动化、以及给售前提效的实践。
+    </p>
+    <a class="cta" href="/blog">读文章 →</a>
+  </section>
+
+  <section class="recent">
+    <h2>近期文章</h2>
+    <ul class="post-list">
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+            <span class="date"><FormattedDate date={post.data.date} /></span>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="more"><a href="/blog">查看全部 →</a></p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 0 2.5rem;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    margin: 0 0 0.5rem;
+  }
+  .tagline {
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--muted);
+    margin: 0 0 1rem;
+  }
+  .intro {
+    max-width: 32rem;
+    margin: 0 auto 1.5rem;
+    color: var(--muted);
+  }
+  .cta {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .cta:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .recent {
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+  }
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .post-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px dotted #e0dcd2;
+  }
+  .post-list a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.05rem;
+  }
+  .post-list a:hover {
+    color: var(--accent);
+  }
+  .date {
+    color: var(--muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  .more {
+    margin-top: 1rem;
+  }
+</style>
