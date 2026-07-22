@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="关于 | 帆哥" description="不会写代码的售前，用 AI Agent 把想法变成产品">
+<BaseLayout title="关于 | 帆哥本杰明 · AI 研究院" description="不会写代码的售前，用 AI Agent 把想法变成产品">
   <div class="about-page">
 
     <!-- ════════════════ 1. Hero ════════════════ -->
@@ -11,11 +11,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="hero-avatar-row">
         <img src="/images/avatar-cartoon.jpeg" alt="帆哥" class="hero-avatar" />
         <div class="hero-text">
-          <h1>关于帆哥</h1>
+          <h1>关于帆哥本杰明</h1>
           <p class="lead">
-            <strong>不会写代码的售前</strong>，在 B2B SaaS 行业摸爬滚打十几年。
-            从给客户讲方案、做 Demo、搭渠道体系，到用 AI Agent 把一个个想法变成能用的产品——
-            代码不再是工程师的特权，而是每个想解决问题的业务人的工具。
+            <strong>不会写代码的售前</strong>，在 B2B SaaS 和互联网行业摸爬滚打十几年。
+            从给客户讲方案、做 Demo、搭渠道体系，到用 AI Agent 把一个个想法变成能用的产品。
           </p>
         </div>
       </div>
@@ -35,77 +34,165 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           全部由 AI 代笔，我来指挥。
         </p>
         <p class="story-thesis">
-          我的核心命题：<strong>一个不懂编程的业务人，能不能靠 AI Agent 构建自己的数字产品？</strong>
+          核心命题：<strong>一个不懂编程的业务人，能不能靠 AI Agent 构建自己的数字产品？</strong>
           答案是可以。而且不止是我可以，你也可以。
         </p>
       </div>
     </section>
 
-    <!-- ════════════════ 3. 一句话 ════════════════ -->
+    <!-- ════════════════ 3. 我能做什么 ════════════════ -->
+    <section class="card ability-card">
+      <h2 class="section-icon"><span class="icon">⚡</span> 我能做什么</h2>
+      <p class="ability-intro">不是"什么都会"，但这些事我确实每天都在做</p>
+
+      <div class="ability-grid">
+        <div class="ability-item">
+          <div class="ability-icon">🎯</div>
+          <div class="ability-content">
+            <strong>AI 方案架构</strong>
+            <span>把模糊需求拆成可执行的 AI 工作流——从选模型到设计 Prompt 链，从搭 Skill 到部署上线</span>
+          </div>
+        </div>
+        <div class="ability-item">
+          <div class="ability-icon">📝</div>
+          <div class="ability-content">
+            <strong>自媒体全链路生产</strong>
+            <span>选题→口播稿→录制→AI转录→排版→多平台分发，一个人完成一个内容团队的工作流</span>
+          </div>
+        </div>
+        <div class="ability-item">
+          <div class="ability-icon">🤖</div>
+          <div class="ability-content">
+            <strong>AI Agent / 智能体搭建</strong>
+            <span>用扣子(Coze)、WorkBuddy Skills 等平台搭建可复用的智能体和工作流自动化</span>
+          </div>
+        </div>
+        <div class="ability-item">
+          <div class="ability-icon">💼</div>
+          <div class="ability-content">
+            <strong>售前 &amp; B2B 效率提效</strong>
+            <span>方案自动生成、竞品对比分析、招标文件拆解——用 AI 把售前重复劳动砍掉 70%</span>
+          </div>
+        </div>
+        <div class="ability-item">
+          <div class="ability-icon">☁️</div>
+          <div class="ability-content">
+            <strong>飞书 &amp; 企业工具深度集成</strong>
+            <span>把 AI 嵌入审批流、报表、客户管理、知识库——让飞书变成企业的 AI 操作系统</span>
+          </div>
+        </div>
+        <div class="ability-item">
+          <div class="ability-icon">🏗️</div>
+          <div class="ability-content">
+            <strong>零代码建站 &amp; 产品原型</strong>
+            <span>用 AI 搭建静态站（如本站）、落地页、内部工具——不写一行代码上线</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 4. 一句话 ════════════════ -->
     <section class="card quote-card">
       <blockquote>
         "我不做'技术产品'，我做的是用技术解决业务问题的方案。面向的是那些想用 AI 提升效率、但又不想从零学编程的销售、售前和运营。"
-        <cite>—— 帆哥</cite>
+        <cite>—— 帆哥本杰明</cite>
       </blockquote>
     </section>
 
-    <!-- ════════════════ 4. 找到我 ════════════════ -->
+    <!-- ════════════════ 5. 找到我 — 7 个统一卡片 ════════════════ -->
     <section class="card social-card">
       <h2 class="section-icon"><span class="icon">📡</span> 找到我</h2>
-      <p class="social-intro">扫码关注 / 加群，一起聊 AI、聊搞钱、聊用 Agent 干活</p>
+      <p class="social-intro">扫码关注或点击跳转，一起聊 AI、聊搞钱、聊用 Agent 干活</p>
 
-      <div class="qr-grid">
-        <a class="qr-card" href="#" onclick="return false;">
-          <div class="qr-img-wrap">
+      <div class="social-grid">
+
+        <!-- 1. 飞书群 -->
+        <div class="social-card-item qr-card-item" data-lightbox>
+          <div class="social-img-wrap">
             <img src="/images/qr-feishu-group.png" alt="飞书AI粉丝群" loading="lazy" />
           </div>
-          <div class="qr-label">
+          <div class="social-label">
             <strong>飞书 AI 粉丝群</strong>
             <span>帆友科技 · 帆哥AI粉丝群</span>
           </div>
-        </a>
+        </div>
 
-        <a class="qr-card" href="#" onclick="return false;">
-          <div class="qr-img-wrap">
+        <!-- 2. 微信公众号 -->
+        <div class="social-card-item qr-card-item" data-lightbox>
+          <div class="social-img-wrap">
             <img src="/images/qr-wechat-mp.jpg" alt="帆哥AI研究室" loading="lazy" />
           </div>
-          <div class="qr-label">
+          <div class="social-label">
             <strong>微信公众号</strong>
             <span>帆哥AI研究室</span>
           </div>
-        </a>
+        </div>
 
-        <a class="qr-card" href="#" onclick="return false;">
-          <div class="qr-img-wrap">
+        <!-- 3. 视频号 -->
+        <div class="social-card-item qr-card-item" data-lightbox>
+          <div class="social-img-wrap">
             <img src="/images/qr-video-account.jpg" alt="视频号" loading="lazy" />
           </div>
-          <div class="qr-label">
-            <strong>视频号</strong>
+          <div class="social-label">
+            <strong>微信视频号</strong>
             <span>帆哥AI研究室</span>
           </div>
-        </a>
+        </div>
 
-        <a class="qr-card" href="#" onclick="return false;">
-          <div class="qr-img-wrap">
+        <!-- 4. 抖音 -->
+        <div class="social-card-item qr-card-item" data-lightbox>
+          <div class="social-img-wrap">
             <img src="/images/qr-douyin.png" alt="抖音" loading="lazy" />
           </div>
-          <div class="qr-label">
+          <div class="social-label">
             <strong>抖音</strong>
-            <span>帆哥 Benjamin@AI研究社</span>
+            <span>帆哥 Benjamin@AI研究社 · 584401655</span>
           </div>
-          <div class="douyin-id">抖音号：<strong>584401655</strong></div>
-        </a>
-      </div>
+        </div>
 
-      <div class="social-links-row">
-        <a href="https://space.bilibili.com/13472754" target="_blank" rel="noopener">B站 · 帆哥Benjamin_AI研究院</a>
-        <a href="https://www.xiaohongshu.com/user/profile/5c2b8221000000000701bb2d" target="_blank" rel="noopener">小红书 · 帆哥Benjamin_AI研究院</a>
-        <a href="https://www.zhihu.com/people/fanshuai001" target="_blank" rel="noopener">知乎 · 帆哥AI研究院</a>
-        <a href="https://github.com/wangan0214" target="_blank" rel="noopener">GitHub · wangan0214</a>
+        <!-- 5. GitHub -->
+        <a href="https://github.com/wangan0214" target="_blank" rel="noopener" class="social-card-item link-card-item">
+          <div class="social-link-icon">🐙</div>
+          <div class="social-label">
+            <strong>GitHub</strong>
+            <span>wangan0214 · 开源项目与代码仓库</span>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
+        <!-- 6. B站 -->
+        <a href="https://space.bilibili.com/13472754" target="_blank" rel="noopener" class="social-card-item link-card-item">
+          <div class="social-link-icon">📺</div>
+          <div class="social-label">
+            <strong>B站</strong>
+            <span>帆哥Benjamin_AI研究院</span>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
+        <!-- 7. 小红书 -->
+        <a href="https://www.xiaohongshu.com/user/profile/5c2b8221000000000701bb2d" target="_blank" rel="noopener" class="social-card-item link-card-item">
+          <div class="social-link-icon">📕</div>
+          <div class="social-label">
+            <strong>小红书</strong>
+            <span>帆哥Benjamin_AI研究院</span>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
       </div>
     </section>
 
-    <!-- ════════════════ 5. 我正在做的事 ════════════════ -->
+    <!-- Lightbox 弹层 -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <div class="lightbox-backdrop"></div>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="" />
+        <button class="lightbox-close" aria-label="关闭">✕</button>
+      </div>
+    </div>
+
+    <!-- ════════════════ 6. 我正在做的事 ════════════════ -->
     <section class="card work-card">
       <h2 class="section-icon"><span class="icon">🚀</span> 我正在做的事</h2>
       <ul class="work-list">
@@ -140,7 +227,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </ul>
     </section>
 
-    <!-- ════════════════ 6. 精选项目 ════════════════ -->
+    <!-- ════════════════ 7. 精选项目 ════════════════ -->
     <section class="card projects-card">
       <h2 class="section-icon"><span class="icon">💎</span> 精选项目</h2>
       <p class="projects-intro">我在做的和沉淀下来的东西，点进去看看</p>
@@ -185,12 +272,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- ════════════════ 7. AI 工具箱 ════════════════ -->
+    <!-- ════════════════ 8. AI 工具箱 ════════════════ -->
     <section class="card toolkit-card">
       <h2 class="section-icon"><span class="icon">🛠</span> 我的 AI 工具箱</h2>
       <p class="toolkit-intro">每天实际在用的生产力栈，不是"听说好用"，是真·手上有泥</p>
 
-      <!-- 分类 1: 对话 & 深度思考 -->
       <div class="tool-group">
         <h3 class="tool-group-title">对话 & 深度思考</h3>
         <div class="tool-grid">
@@ -203,7 +289,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- 分类 2: 编码 & 自动化 -->
       <div class="tool-group">
         <h3 class="tool-group-title">编码 & 自动化</h3>
         <div class="tool-grid">
@@ -212,11 +297,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="tool-item"><strong>Codex++</strong><span>Codex 增强封装 · 结构化工作流模板</span></div>
           <div class="tool-item"><strong>Cursor / CC Switch</strong><span>AI 原生 IDE · 代码补全+编辑+重构一体化</span></div>
           <div class="tool-item"><strong>Docker</strong><span>容器化部署 · 一键启动 AI 工具服务端环境</span></div>
-          <div class="tool-item"><strong>ZCode</strong><span>轻量级代码编辑运行环境</span></div>
         </div>
       </div>
 
-      <!-- 分类 3: 智能体 & 工作流 -->
       <div class="tool-group">
         <h3 class="tool-group-title">智能体 & 工作流</h3>
         <div class="tool-grid">
@@ -225,7 +308,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
 
-      <!-- 分类 4: 内容生产 -->
       <div class="tool-group">
         <h3 class="tool-group-title">内容生产</h3>
         <div class="tool-grid">
@@ -290,7 +372,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .card:hover { box-shadow: var(--shadow-md); }
 
-  /* Section 标题统一样式 */
   h2.section-icon {
     display: flex;
     align-items: center;
@@ -299,18 +380,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: var(--fs-h2);
     color: var(--text-primary);
   }
-  h2.section-icon .icon {
-    font-size: 1.3em;
-    flex-shrink: 0;
-  }
-  .card > p,
-  .card .intro-text {
-    color: var(--text-secondary);
-    font-size: var(--fs-body);
-    line-height: 1.7;
-  }
+  h2.section-icon .icon { font-size: 1.3em; flex-shrink: 0; }
 
-  /* ── 2. 故事卡 ── */
+  /* ── 故事卡 ── */
   .story-card .story-body p {
     color: var(--text-secondary);
     font-size: var(--fs-body);
@@ -327,12 +399,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .story-thesis strong { color: var(--accent); }
 
-  /* ── 3. 语录卡 ── */
+  /* ── 能力卡 ── */
+  .ability-intro {
+    font-size: var(--fs-sm);
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .ability-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  .ability-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem 1.4rem;
+    background: rgba(0,0,0,0.015);
+    border-radius: 10px;
+    border-left: 3px solid #ccc;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ability-item:hover {
+    transform: translateX(3px);
+    border-left-color: var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+  .ability-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    border-radius: 10px;
+  }
+  .ability-content { display: flex; flex-direction: column; gap: 0.25rem; }
+  .ability-content strong {
+    font-family: var(--serif-head);
+    font-size: var(--fs-body);
+    font-weight: 650;
+    color: var(--text-primary);
+  }
+  .ability-content span {
+    font-size: var(--fs-sm);
+    color: var(--text-light);
+    line-height: 1.55;
+  }
+
+  /* ── 语录卡 ── */
   .quote-card { background: linear-gradient(135deg, #faf7f2, var(--bg-card)); }
   .quote-card blockquote {
-    border: none;
-    margin: 0;
-    padding: 0;
+    border: none; margin: 0; padding: 0;
     font-style: italic;
     font-size: var(--fs-lead);
     color: var(--text-primary);
@@ -340,8 +461,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     text-align: center;
   }
   .quote-card cite {
-    display: block;
-    text-align: center;
+    display: block; text-align: center;
     margin-top: 1rem;
     font-size: var(--fs-body);
     color: var(--accent);
@@ -349,38 +469,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-style: normal;
   }
 
-  /* ── 4. 社交卡 ── */
+  /* ════════════════ 社交区 — 7 个统一卡片 ════════════════ */
   .social-card { text-align: center; }
   .social-intro {
     font-size: var(--fs-body);
     color: var(--text-secondary);
     margin-bottom: 2rem;
   }
-  .qr-grid {
+  .social-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 1.2rem;
     margin-top: 1.5rem;
   }
-  .qr-card {
+
+  /* 统一卡片基础样式 */
+  .social-card-item,
+  a.social-card-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
-    padding: 1.5rem 1rem;
+    gap: 0.7rem;
+    padding: 1.3rem 1rem;
     background: #fff;
     border-radius: 14px;
     border: 1px solid #ede8dc;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-decoration: none;
     color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .qr-card:hover {
-    transform: translateY(-4px);
+  .social-card-item:hover,
+  a.social-card-item:hover {
+    transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.09);
   }
-  .qr-img-wrap {
-    width: 150px; height: 150px;
+  a.social-card-item:hover { color: inherit; }
+
+  /* QR 图片容器 — 可点击放大 */
+  .social-img-wrap {
+    width: 130px; height: 130px;
     border-radius: 12px;
     overflow: hidden;
     background: #f8f6f1;
@@ -388,53 +515,106 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     align-items: center;
     justify-content: center;
     border: 1px solid #e8e2d4;
+    cursor: zoom-in;
+    transition: border-color 0.15s ease;
   }
-  .qr-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
-  .qr-label {
+  .social-img-wrap:hover { border-color: var(--accent); }
+  .social-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    }
+
+  /* 文字链接卡片的图标 */
+  .social-link-icon {
+    font-size: 2rem;
+    width: 64px; height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+
+  /* 统一标签文字 */
+  .social-label {
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
     text-align: center;
   }
-  .qr-label strong {
+  .social-label strong {
     font-family: var(--serif-head);
     font-size: var(--fs-body);
     font-weight: 600;
     color: var(--text-primary);
   }
-  .qr-label span { font-size: var(--fs-xs); color: var(--text-light); }
-  .douyin-id {
-    margin-top: 0.2rem;
-    font-size: var(--fs-sm);
-    color: var(--accent);
-    padding: 0.2rem 0.8rem;
-    background: var(--accent-soft);
-    border-radius: 20px;
+  .social-label span {
+    font-size: var(--fs-xs);
+    color: var(--text-light);
+    line-height: 1.4;
   }
-  .douyin-id strong { font-weight: 700; letter-spacing: 0.5px; }
-  .social-links-row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.2rem 2rem;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px dashed var(--rule);
-  }
-  .social-links-row a {
-    font-size: var(--fs-sm);
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.15s ease;
-    padding: 0.3rem 0;
-  }
-  .social-links-row a:hover { color: var(--accent); }
 
-  /* ── 5. 正在做的事 ── */
+  /* 箭头（仅文字链接卡片有） */
+  .social-arrow {
+    font-size: 1.1rem;
+    color: var(--rule);
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  a.social-card-item:hover .social-arrow { color: var(--accent); transform: translateX(3px); }
+
+  /* ════════════════ Lightbox ════════════════ */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(8px);
+  }
+  .lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .lightbox-content img {
+    display: block;
+    max-width: 400px;
+    max-height: 80vh;
+    border-radius: 10px;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -12px; right: -12px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    transition: background 0.15s ease;
+  }
+  .lightbox-close:hover { background: var(--accent); }
+
+  /* ── 正在做的事 ── */
   .work-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style: none; padding: 0; margin: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
@@ -463,7 +643,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     line-height: 1.55;
   }
 
-  /* ── 6. 精选项目 ── */
+  /* ── 精选项目 ── */
   .projects-intro {
     font-size: var(--fs-sm);
     color: var(--text-light);
@@ -528,7 +708,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .project-card:hover .project-arrow { color: var(--accent); transform: translateX(3px); }
 
-  /* ── 7. AI 工具箱 ── */
+  /* ── AI 工具箱 ── */
   .toolkit-intro {
     font-size: var(--fs-sm);
     color: var(--text-light);
@@ -601,9 +781,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* ── 响应式 ── */
   @media (max-width: 900px) {
-    .qr-grid { grid-template-columns: repeat(2, 1fr); }
+    .social-grid { grid-template-columns: repeat(3, 1fr); }
     .projects-grid { grid-template-columns: 1fr; }
     .work-list { grid-template-columns: 1fr; }
+    .ability-grid { grid-template-columns: 1fr; }
     .hero-avatar-row { flex-direction: column; text-align: center; }
     .hero-text { text-align: center; }
   }
@@ -611,10 +792,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   @media (max-width: 700px) {
     .card { padding: 1.8rem 1.5rem; }
     .tool-grid { grid-template-columns: 1fr; }
-    .qr-grid { grid-template-columns: 1fr; justify-items: center; }
-    .qr-img-wrap { width: 170px; height: 170px; }
-    .social-links-row { flex-direction: column; align-items: center; gap: 0.7rem; }
+    .social-grid { grid-template-columns: repeat(2, 1fr); justify-items: center; }
+    .social-img-wrap { width: 150px; height: 150px; }
     .hero-avatar { width: 76px; height: 76px; }
     .work-list li { padding: 1rem; }
   }
 </style>
+
+<script>
+  // Lightbox：点击二维码图片放大
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.querySelector('.lightbox-close');
+  const backdrop = document.querySelector('.lightbox-backdrop');
+
+  if (lightbox && lightboxImg) {
+    // 点击 QR 图片打开
+    document.querySelectorAll('[data-lightbox] .social-img-wrap').forEach(wrap => {
+      wrap.addEventListener('click', () => {
+        const img = wrap.querySelector('img');
+        if (img) {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('active');
+          lightbox.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // 关闭
+    const close = () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    };
+    closeBtn?.addEventListener('click', close);
+    backdrop?.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  }
+</script>
