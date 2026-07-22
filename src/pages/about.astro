@@ -43,51 +43,113 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- ════════════════ 3. 我能做什么 ════════════════ -->
     <section class="card ability-card">
       <h2 class="section-icon"><span class="icon">⚡</span> 我能做什么</h2>
-      <p class="ability-intro">不是"什么都会"，但这些事我确实每天都在做</p>
+      <p class="ability-intro">十五年 B2B 商业化实战沉淀下来的能力——不是"什么都会"，但这些事我确实每天都在做</p>
 
+      <!-- 职业路径概览 -->
+      <div class="career-path">
+        <div class="career-step">
+          <span class="career-badge">互联网大厂</span>
+          <span>字节飞书 · 阿里 · 网易</span>
+        </div>
+        <span class="career-arrow">→</span>
+        <div class="career-step">
+          <span class="career-badge">SaaS 上市公司</span>
+          <span>微盟</span>
+        </div>
+        <span class="career-arrow">→</span>
+        <div class="career-step">
+          <span class="career-badge highlight">创业公司</span>
+          <span>联合创始人</span>
+        </div>
+      </div>
+
+      <!-- 核心能力 -->
+      <h3 class="ability-section-title">核心能力</h3>
       <div class="ability-grid">
-        <div class="ability-item">
+
+        <div class="ability-item featured">
           <div class="ability-icon">🎯</div>
           <div class="ability-content">
-            <strong>AI 方案架构</strong>
-            <span>把模糊需求拆成可执行的 AI 工作流——从选模型到设计 Prompt 链，从搭 Skill 到部署上线</span>
+            <strong>解决方案架构 &amp; 技术商业化</strong>
+            <span>主导 15+ 个创新产品从需求挖掘、方案设计、研发落地到规模化销售的完整闭环。擅长将 AI/大数据能力转化为可落地的行业解决方案和标准化产品。</span>
+            <span class="ability-tags">飞书 · 微盟 · 阿里巴巴</span>
           </div>
         </div>
+
+        <div class="ability-item featured">
+          <div class="ability-icon">🤝</div>
+          <div class="ability-content">
+            <strong>高层销售管理 &amp; KA 大客户</strong>
+            <span>独立完成企业 1 号位 / CXO 层级对话到签约的全闭环。具备极强的 KA 大客户销售和渠道赋能能力，多次达成全国头部业绩。</span>
+            <span class="ability-tags">字节飞书 · 微盟</span>
+          </div>
+        </div>
+
+        <div class="ability-item featured">
+          <div class="ability-icon">🌐</div>
+          <div class="ability-content">
+            <strong>渠道体系搭建 &amp; 代理商赋能</strong>
+            <span>从 0 到 1 搭建覆盖全国的服务商与代理商体系，具备管理数千家渠道伙伴的经验，实现业绩数倍增长。</span>
+            <span class="ability-tags">微盟 · 善金科技</span>
+          </div>
+        </div>
+
+        <div class="ability-item featured">
+          <div class="ability-icon">🚀</div>
+          <div class="ability-content">
+            <strong>创业 0→1 &amp; 团队组建</strong>
+            <span>联合创始团队成员，1 年内完成从零搭建团队到数千万级业绩回款，覆盖数百个城市。PMP 和信息系统项目管理师双认证。</span>
+            <span class="ability-tags">善金科技（联合创始人）</span>
+          </div>
+        </div>
+
+        <div class="ability-item">
+          <div class="ability-icon">🤖</div>
+          <div class="ability-content">
+            <strong>AI + 行业落地</strong>
+            <span>深入汽车整车 / 零部件及高端装备制造行业，将 AI 产品能力与企业数字化转型场景深度结合，对数字化、数据化、智能化业务有较深的行业认知。</span>
+          </div>
+        </div>
+
+        <div class="ability-item">
+          <div class="ability-icon">📊</div>
+          <div class="ability-content">
+            <strong>数据分析 &amp; AI 应用设计</strong>
+            <span>大数据分析、AI 场景设计、SaaS 产品规划、数字化转型咨询——用数据驱动决策，用 AI 提效业务。</span>
+          </div>
+        </div>
+
+        <div class="ability-item">
+          <div class="ability-icon">💬</div>
+          <div class="ability-content">
+            <strong>商务谈判 &amp; 项目签约推进</strong>
+            <span>高层商务沟通、需求挖掘、痛点分析、千万级项目全生命周期管理。擅长精准把握业务痛点和购买决策链。</span>
+          </div>
+        </div>
+
         <div class="ability-item">
           <div class="ability-icon">📝</div>
           <div class="ability-content">
             <strong>自媒体全链路生产</strong>
-            <span>选题→口播稿→录制→AI转录→排版→多平台分发，一个人完成一个内容团队的工作流</span>
+            <span>选题 → 口播稿 → 录制 → AI 转录 → 排版 → 多平台分发，一个人完成一个内容团队的工作流。</span>
           </div>
         </div>
-        <div class="ability-item">
-          <div class="ability-icon">🤖</div>
-          <div class="ability-content">
-            <strong>AI Agent / 智能体搭建</strong>
-            <span>用扣子(Coze)、WorkBuddy Skills 等平台搭建可复用的智能体和工作流自动化</span>
-          </div>
-        </div>
-        <div class="ability-item">
-          <div class="ability-icon">💼</div>
-          <div class="ability-content">
-            <strong>售前 &amp; B2B 效率提效</strong>
-            <span>方案自动生成、竞品对比分析、招标文件拆解——用 AI 把售前重复劳动砍掉 70%</span>
-          </div>
-        </div>
-        <div class="ability-item">
-          <div class="ability-icon">☁️</div>
-          <div class="ability-content">
-            <strong>飞书 &amp; 企业工具深度集成</strong>
-            <span>把 AI 嵌入审批流、报表、客户管理、知识库——让飞书变成企业的 AI 操作系统</span>
-          </div>
-        </div>
-        <div class="ability-item">
-          <div class="ability-icon">🏗️</div>
-          <div class="ability-content">
-            <strong>零代码建站 &amp; 产品原型</strong>
-            <span>用 AI 搭建静态站（如本站）、落地页、内部工具——不写一行代码上线</span>
-          </div>
-        </div>
+
+      </div>
+
+      <!-- 专业技能标签 -->
+      <div class="skill-tags-row">
+        <span class="skill-tag">解决方案设计</span>
+        <span class="skill-tag">技术商业化</span>
+        <span class="skill-tag">KA 大客户销售</span>
+        <span class="skill-tag">渠道赋能</span>
+        <span class="skill-tag">PMP 项目管理</span>
+        <span class="skill-tag">AI 应用场景</span>
+        <span class="skill-tag">数字化转型</span>
+        <span class="skill-tag">SaaS</span>
+        <span class="skill-tag">0→1 创业</span>
+      </div>
+    </section>
       </div>
     </section>
 
@@ -406,6 +468,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: 1.5rem;
     font-style: italic;
   }
+
+  /* 职业路径 */
+  .career-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 1.2rem 1.5rem;
+    background: linear-gradient(135deg, rgba(184,74,60,0.03), transparent);
+    border-radius: 10px;
+    border: 1px solid #ede8dc;
+  }
+  .career-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .career-badge {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--text-primary);
+    background: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    border: 1.5px solid var(--rule);
+    white-space: nowrap;
+  }
+  .career-badge.highlight {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .career-step span:last-child {
+    font-size: var(--fs-xs);
+    color: var(--text-light);
+  }
+  .career-arrow {
+    color: var(--rule);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  /* 能力分区块标题 */
+  .ability-section-title {
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+    font-family: var(--sans);
+    letter-spacing: 0.02em;
+  }
+
   .ability-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -448,6 +565,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: var(--fs-sm);
     color: var(--text-light);
     line-height: 1.55;
+  }
+  /* 能力项底部的品牌标签 */
+  .ability-tags {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: var(--fs-xs);
+    color: var(--accent);
+    opacity: 0.7;
+    font-weight: 500;
+  }
+
+  /* 技能标签行 */
+  .skill-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.8rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--rule);
+  }
+  .skill-tag {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    background: rgba(0,0,0,0.03);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    border: 1px solid var(--rule);
+    white-space: nowrap;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   /* ── 语录卡 ── */
