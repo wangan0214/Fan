@@ -345,7 +345,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="tool-text"><strong>Claude</strong><span>深度推理、长文写作、方案架构——主力"第二大脑"</span></div>
           </div>
           <div class="tool-item">
-            <img src="https://cdn.simpleicons.org/openai/412991" alt="ChatGPT" class="tool-logo" loading="lazy" />
+            <div class="tool-logo tool-logo-custom gpt-logo">GPT</div>
             <div class="tool-text"><strong>ChatGPT</strong><span>GPT-4o 多模态 · 创意发散 · 头脑风暴首选</span></div>
           </div>
           <div class="tool-item">
@@ -357,7 +357,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="tool-text"><strong>Kimi</strong><span>20万+ token 超长上下文 · 整份 PDF 丢进去分析</span></div>
           </div>
           <div class="tool-item">
-            <img src="https://cdn.simpleicons.org/bytedance/00D6D9" alt="豆包" class="tool-logo" loading="lazy" />
+            <div class="tool-logo tool-logo-custom doubao-logo">豆</div>
             <div class="tool-text"><strong>豆包 Doubao</strong><span>字节系 · 中文理解优秀 · 响应快</span></div>
           </div>
           <div class="tool-item">
@@ -375,7 +375,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="tool-text"><strong>WorkBuddy</strong><span>核心工作台 · AI Agent 平台 · 内置文件/浏览器/终端/GitHub 连接器</span></div>
           </div>
           <div class="tool-item featured">
-            <img src="https://cdn.simpleicons.org/openai/412991" alt="Codex" class="tool-logo" loading="lazy" />
+            <div class="tool-logo tool-logo-custom codex-logo">CD</div>
             <div class="tool-text"><strong>Codex</strong><span>OpenAI 编程引擎 · 自然语言生成完整项目 · 全栈开发</span></div>
           </div>
           <div class="tool-item">
@@ -969,6 +969,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .codexpp-logo { background: linear-gradient(135deg, #412991, #6B4CE6); }
   .skill-logo { background: linear-gradient(135deg, #00A6E0, #41BDFE); }
   .media-logo { background: linear-gradient(135deg, #FF6B35, #FF9F7A); }
+  .gpt-logo { background: linear-gradient(135deg, #10a37f, #1a7f64); }
+  .doubao-logo { background: linear-gradient(135deg, #00D6D9, #0099AA); }
+  .codex-logo { background: linear-gradient(135deg, #412991, #6B4CE6); }
 
   /* 工具文字区域 */
   .tool-text { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; min-width: 0; }
