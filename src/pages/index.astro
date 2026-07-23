@@ -12,20 +12,21 @@ const posts = (await getCollection('blog'))
 <BaseLayout title="帆哥AI研究院">
   <!-- ── Hero ── -->
   <section class="hero">
-    <div class="hero-accent"></div>
-    <p class="hero-label">个人主页</p>
-    <h1>帆哥Benjamin</h1>
-    <p class="tagline">
-      <strong>不会写代码的互联网科技人</strong>，在 B2B SaaS 等互联网行业摸爬滚打十几年。
-      从产品运营、平台运营、给客户讲价值、做 Demo、再到KA销售和搭渠道体系，现在正在用 AI Agent 把一个个想法变成能用的产品。
-    </p>
-    <p class="intro">
-      见过太多企业数字化转型喊口号落不了地，也见过太多好工具因为"不会用"被束之高阁。
-      这里记录我用 AI 构建数字产品、跑自媒体自动化、以及把 AI 工具落地到真实业务场景的实践。
-    </p>
-    <div class="hero-actions">
-      <a class="cta cta-primary" href="/blog">读文章 →</a>
-      <a class="cta cta-secondary" href="/about">关于我</a>
+    <div class="hero-inner">
+      <p class="hero-label">个人主页</p>
+      <h1>帆哥Benjamin</h1>
+      <p class="tagline">
+        <strong>不会写代码的互联网科技人</strong>，在 B2B SaaS 等互联网行业摸爬滚打十几年。
+        从产品运营、平台运营、给客户讲价值、做 Demo、再到KA销售和搭渠道体系，现在正在用 AI Agent 把一个个想法变成能用的产品。
+      </p>
+      <p class="intro">
+        见过太多企业数字化转型喊口号落不了地，也见过太多好工具因为"不会用"被束之高阁。
+        这里记录我用 AI 构建数字产品、跑自媒体自动化、以及把 AI 工具落地到真实业务场景的实践。
+      </p>
+      <div class="hero-actions">
+        <a class="cta cta-primary" href="/blog">读文章 →</a>
+        <a class="cta cta-secondary" href="/about">关于我</a>
+      </div>
     </div>
   </section>
 
@@ -83,50 +84,54 @@ const posts = (await getCollection('blog'))
 </BaseLayout>
 
 <style>
-  /* ── Hero ── */
+  /* ── Hero — 柔和一体式 ── */
   .hero {
-    text-align: center;
-    padding: 3rem 0 2.5rem;
+    padding: 0;
     position: relative;
   }
-  .hero-accent {
-    width: 60px; height: 3px;
-    background: linear-gradient(to right, var(--accent), transparent);
-    margin: 0 auto 1.5rem;
-    border-radius: 2px;
+  .hero-inner {
+    text-align: center;
+    padding: 3.5rem 2.5rem 3rem;
+    background: linear-gradient(180deg, rgba(184,74,60,0.03) 0%, transparent 60%);
+    border-radius: var(--radius);
+    border: 1px solid rgba(0,0,0,0.035);
   }
   .hero-label {
     font-size: var(--fs-xs);
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     color: var(--text-light);
-    margin: 0 0 0.6rem;
+    margin: 0 0 1.2rem;
+    opacity: 0.7;
   }
   .hero h1 {
-    /* 首页 hero 大标题用 display 级别 */
-    font-size: var(--fs-display);
-    font-weight: 700;
-    margin: 0 0 0.8rem;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: var(--serif-head);
+    font-size: 1.65rem;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
   }
   .tagline {
-    font-family: var(--serif-head);
-    font-style: italic;
-    font-size: 1.25rem;
+    font-family: var(--serif-body);
+    font-size: var(--fs-body);
     color: var(--text-secondary);
-    margin: 0 0 1.4rem;
-    line-height: 1.45;
+    margin: 0 0 1.2rem;
+    line-height: 1.8;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tagline strong {
+    color: var(--text-primary);
+    font-weight: 600;
   }
   .intro {
-    max-width: 38rem;
-    margin: 0 auto 2rem;
-    color: var(--text-secondary);
-    font-size: var(--fs-body);
-    line-height: 1.75;
+    max-width: 34rem;
+    margin: 0 auto 1.8rem;
+    color: var(--text-light);
+    font-size: var(--fs-sm);
+    line-height: 1.8;
   }
   .hero-actions {
     display: flex;
@@ -285,9 +290,9 @@ const posts = (await getCollection('blog'))
   .bottom-cta a:hover { color: var(--accent-dark); }
 
   @media (max-width: 600px) {
-    .hero { padding: 2.5rem 0 2rem; }
-    .hero h1 { font-size: 2.4rem; }
-    .tagline { font-size: 1.1rem; }
+    .hero-inner { padding: 2.5rem 1.5rem 2.2rem; }
+    .hero h1 { font-size: 1.4rem; }
+    .tagline { font-size: var(--fs-sm); line-height: 1.75; }
     .card { padding: 1.5rem 1.3rem; }
     .hero-actions { flex-direction: column; align-items: center; }
     .cta { width: 100%; max-width: 220px; text-align: center; }
