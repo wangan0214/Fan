@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="零代码搭个人主页 · 保姆级全指南 | 帆哥AI研究院"
+  description="一行代码不用写，一个下午搞定自己的网站。保姆级教程：用 GitHub + Cloudflare Pages + AI 对话工具，免备案、全球可访问，总成本最低 ¥0/年。"
+>
+  <article class="prose guide">
+    <p class="kicker">保姆级教程 · 基于 fangeai.com 真实搭建</p>
+    <h1>零代码搭个人主页 · 保姆级全指南</h1>
+
+    <blockquote>
+      <strong>一行代码不用写</strong>，一个下午搞定。总成本：<strong>域名 $10/年</strong>（可选），其余全部免费。本指南每一步都踩过坑验证过。
+    </blockquote>
+
+    <nav class="toc" aria-label="目录">
+      <strong>目录</strong>
+      <ol>
+        <li><a href="#prepare">前置准备：注册 3 个免费账号</a></li>
+        <li><a href="#step1">第 1 步：让 AI 生成网站代码</a></li>
+        <li><a href="#step2">第 2 步：把代码上传到 GitHub</a></li>
+        <li><a href="#step3">第 3 步：Cloudflare Pages 一键部署</a></li>
+        <li><a href="#step4">第 4 步：绑定自己的域名（可选）</a></li>
+        <li><a href="#step5">第 5 步：以后怎么更新内容</a></li>
+        <li><a href="#pits">避坑指南（6 条真金白银的教训）</a></li>
+        <li><a href="#cost">免费额度与成本明细</a></li>
+        <li><a href="#files">完整文件清单参考</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="prepare">前置准备：你需要注册 3 个账号</h2>
+    <table class="guide-table">
+      <thead><tr><th>平台</th><th>用途</th><th>费用</th><th>注册地址</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GitHub</strong></td><td>存放网站代码</td><td>免费</td><td>github.com</td></tr>
+        <tr><td><strong>Cloudflare</strong></td><td>托管网站 + 买域名（可选）</td><td>免费托管 / 域名 ~$10/年</td><td>dash.cloudflare.com</td></tr>
+        <tr><td><strong>任意 AI 对话工具</strong></td><td>让 AI 帮你生成网站代码</td><td>免费/有免费额度</td><td>Claude / ChatGPT / DeepSeek / 豆包 任选</td></tr>
+      </tbody>
+    </table>
+    <blockquote>
+      <strong>为什么选这套组合？</strong><br />
+      GitHub = 免费代码仓库，Cloudflare 自动从 GitHub 拉取代码部署；Cloudflare Pages = 境外托管，<strong>不用 ICP 备案</strong>，国内可访问；AI 对话工具 = 你不需要会写代码，只需要会用对话框。
+    </blockquote>
+
+    <h2 id="step1">第 1 步：让 AI 生成你的网站代码</h2>
+    <h3>1.1 准备一段 Prompt</h3>
+    <p>打开你选的 AI 对话工具，把下面这段话发给它（括号里的内容改成你自己的）：</p>
+    <pre><code>请帮我用 Astro v5 框架生成一个个人主页静态网站。
+
+要求：
+- 风格：暖色衬线风，类似一本精致的杂志
+- 配色：暖白底 #f5f0e8 + 深红强调色 #b84a3c
+- 字体：标题用 Vollkorn（衬线），正文用 Gentium Book Basic（衬线）
+- 页面包含：首页（自我介绍 + 文章列表）、关于页（详细简介）、博客文章页
+- 导航栏：全宽毛玻璃效果，滚动时加阴影
+- 页面最大宽度 1080px，居中显示
+- 响应式适配手机端
+
+我的信息：
+- 名字：（你的名字）
+- 一句话介绍：（例如：不会写代码的互联网科技人，在 B2B SaaS 行业摸爬滚打十几年）
+- 自我介绍段落：（写 2-3 句话介绍你自己）
+
+请输出完整的文件结构和每个文件的代码。</code></pre>
+
+    <h3>1.2 拿到代码后做什么</h3>
+    <p>AI 会给你一堆文件。把它们保存到本地一个文件夹里，结构大概是这样：</p>
+    <pre><code>my-website/
+├── astro.config.mjs          ← 项目配置
+├── package.json              ← 依赖声明
+├── src/
+│   ├── layouts/BaseLayout.astro  ← 全局布局（导航栏 + 页脚）
+│   ├── pages/
+│   │   ├── index.astro       ← 首页
+│   │   ├── about.astro       ← 关于页
+│   │   └── blog/
+│   │       ├── index.astro   ← 文章列表页
+│   │       └── [...slug].astro ← 文章详情页
+│   └── content/blog/         ← 在这里放 .md 文章
+└── public/images/            ← 图片放这里</code></pre>
+
+    <h3>1.3 本地预览（确认长什么样）</h3>
+    <pre><code># 安装依赖（只需第一次）
+npm install
+
+# 启动本地预览服务器
+npm run dev</code></pre>
+    <p>然后浏览器打开 <code>http://localhost:4321</code> 就能看到你的网站了。</p>
+    <blockquote>
+      <strong>如果 <code>npm install</code> 报错？</strong><br />
+      确保你电脑装了 Node.js（去 nodejs.org 下载安装版，一路下一步就行），版本要求 Node.js 18 或以上；Mac 用户也可以用 <code>brew install node</code>。
+    </blockquote>
+
+    <h2 id="step2">第 2 步：把代码上传到 GitHub</h2>
+    <h3>方式 A：网页拖拽上传（最简单，推荐新手）</h3>
+    <ol>
+      <li>在仓库页面找到 <strong>"uploading an existing file"</strong> 链接</li>
+      <li>把你本地项目文件夹里的<strong>所有文件</strong>拖进去（除了 <code>node_modules/</code> 文件夹和 <code>package-lock.json</code>）</li>
+      <li>底部填 commit message：<code>init: 个人主页初始版本</code></li>
+      <li>点击 <strong>Commit changes</strong></li>
+    </ol>
+    <h3>方式 B：用 Git 命令行</h3>
+    <pre><code>cd my-website
+git init
+git add .
+git commit -m "init: 个人主页初始版本"
+git branch -M main
+git remote add origin https://github.com/你的用户名/my-website.git
+git push -u origin main</code></pre>
+    <p>在 GitHub 仓库页面应该能看到所有文件（如 <code>src/pages/index.astro</code>），说明上传成功。</p>
+
+    <h2 id="step3">第 3 步：Cloudflare Pages 一键部署</h2>
+    <p>这是最关键的一步，也是最容易踩坑的地方。</p>
+    <blockquote class="warn">
+      <strong>⚠️ 大坑：一定要选对类型！</strong><br />
+      选 <strong>Pages</strong>（连接 Git 仓库），<strong>不要</strong>选 Worker（跑代码的，不是托管网站的），也不要选 Functions 类型。
+    </blockquote>
+    <table class="guide-table">
+      <thead><tr><th>设置项</th><th>填什么</th></tr></thead>
+      <tbody>
+        <tr><td>Project name</td><td>随便起，比如 <code>my-homepage</code></td></tr>
+        <tr><td><strong>Production branch</strong></td><td><strong><code>main</code></strong>（⚠️ 不是 master！）</td></tr>
+        <tr><td>Build command</td><td><code>npm run build</code></td></tr>
+        <tr><td>Build output directory</td><td><code>dist</code></td></tr>
+      </tbody>
+    </table>
+    <p>点击 <strong>Save and Deploy</strong>，等 1-2 分钟，你会看到一个类似 <code>my-homepage.pages.dev</code> 的临时域名，点开它，网站就上线了！</p>
+
+    <h2 id="step4">第 4 步：绑定自己的域名（可选，推荐）</h2>
+    <p><strong>买域名：</strong>Cloudflare 左侧菜单 → <strong>Registrar</strong> → 搜索你想买的域名（如 <code>yourname.com</code> 或 <code>.ai</code> / <code>.dev</code> / <code>.me</code>）→ 价格一般 $9-11/年（Cloudflare 按成本价卖，不加价）→ 结账。</p>
+    <blockquote>
+      <strong>域名挑选建议：</strong><code>.com</code> 最经典但好名字贵；<code>.ai</code> 适合科技/AI 个人品牌；<code>.dev</code>/<code>.me</code> 便宜有个性；避免太长，好记最重要。
+    </blockquote>
+    <p><strong>绑定到 Pages 项目：</strong>回到 <strong>Workers & Pages</strong> → 点击你的项目 → <strong>Custom domains</strong> → 输入域名 → <strong>Activate domain</strong>。DNS 自动配置，等几分钟生效。</p>
+
+    <h2 id="step5">第 5 步：以后怎么更新内容</h2>
+    <h3>写新文章</h3>
+    <p>在项目的 <code>src/content/blog/</code> 目录下新建一个 <code>.md</code> 文件：</p>
+    <pre><code>---
+title: 你的文章标题
+date: 2026-07-24
+draft: false
+---
+
+这里是文章正文，用 Markdown 写就行了。支持 **加粗**、*斜体*、列表、图片等。</code></pre>
+    <p>保存后，推送到 GitHub（方式同第 2 步），Cloudflare 会自动重新部署。</p>
+    <h3>更新的完整流程</h3>
+    <pre><code>改文件 → 推送到 GitHub main 分支 → 等 1-2 分钟 → 浏览器 Cmd+Shift+R 硬刷新</code></pre>
+    <blockquote>
+      <strong>硬刷新很重要！</strong>浏览器会缓存旧版本，普通刷新（F5）可能看到的还是旧的。Mac 用 <strong>Cmd+Shift+R</strong>，Windows 用 <strong>Ctrl+Shift+R</strong>。
+    </blockquote>
+
+    <h2 id="pits">🚨 避坑指南（每一条都是真金白银换来的教训）</h2>
+    <h3>坑 1：误建成 Worker 而不是 Pages</h3>
+    <p><strong>现象：</strong>部署成功但访问报错，或控制台全是 Worker 相关选项。<strong>解决：</strong>删掉重来，确保选的是 <strong>Pages → Connect to Git</strong>。</p>
+    <h3>坑 2：生产分支设成 master 而不是 main</h3>
+    <p><strong>现象：</strong>GitHub 上代码是最新的，但线上一直是旧版或空白。<strong>解决：</strong>Cloudflare → 项目 → Settings → Builds & deployments，把 <strong>Production branch</strong> 改成 <code>main</code>，改完后再推送一次 commit 触发构建。</p>
+    <h3>坑 3：HTML 标签没闭合导致整页样式崩掉</h3>
+    <p><strong>现象：</strong>网站突然变成裸奔状态——没有排版、没有颜色。<strong>预防：</strong>编辑后用 VS Code 标签配对高亮检查；每次改动后本地 <code>npm run build</code> 确认不报错再推送。</p>
+    <h3>坑 4：浏览器缓存让你以为没更新</h3>
+    <p><strong>解决：</strong><strong>Cmd+Shift+R</strong>（Mac）/ <strong>Ctrl+Shift+R</strong>（Windows）强制刷新；还不行就开无痕模式。</p>
+    <h3>坑 5：simpleicons 的图标 URL 返回 404</h3>
+    <p><strong>解决：</strong>先去 simpleicons.org 搜索确认 slug 是否存在；找不到的图标改用自定义文字 logo（CSS 渐变背景 + 白色文字）。</p>
+    <h3>坑 6：沙箱环境 git push 失败</h3>
+    <p><strong>现象：</strong>某些网络环境下 <code>git push</code> 报 <code>502 CONNECT tunnel failed</code>。<strong>解决：</strong>改用 GitHub CLI（<code>gh</code>）通过 API 推送，绕过 git push。</p>
+
+    <h2 id="cost">💰 免费额度与成本明细</h2>
+    <table class="guide-table">
+      <thead><tr><th>项目</th><th>免费额度</th><th>个人站够不够</th></tr></thead>
+      <tbody>
+        <tr><td>Cloudflare Pages 托管</td><td>无限带宽、无限请求</td><td>✅ 绰绰有余</td></tr>
+        <tr><td>Cloudflare Pages 构建次数</td><td>500 次/月</td><td>✅ 每月 10-30 次</td></tr>
+        <tr><td>GitHub 仓库</td><td>Public 仓库无限</td><td>✅ 够用</td></tr>
+        <tr><td>域名（Cloudflare Registrar）</td><td>成本价 ~$10/年</td><td>必须花钱（约 ¥70-80/年）</td></tr>
+        <tr><td>SSL 证书 / DDoS 防护</td><td>免费自带</td><td>✅</td></tr>
+      </tbody>
+    </table>
+    <table class="guide-table">
+      <thead><tr><th>场景</th><th>月成本</th><th>年成本</th></tr></thead>
+      <tbody>
+        <tr><td>最省方案（用 pages.dev 免费子域名，不买域名）</td><td><strong>¥0</strong></td><td><strong>¥0</strong></td></tr>
+        <tr><td>推荐方案（买一个 .com 域名）</td><td>~¥7</td><td>~¥75</td></tr>
+      </tbody>
+    </table>
+    <blockquote>结论：个人站可以做到 <strong>接近零成本运行</strong>。唯一的花销是域名，一年不到一杯咖啡钱。</blockquote>
+
+    <h2 id="files">📁 完整文件清单参考</h2>
+    <pre><code>project-root/
+├── astro.config.mjs           # Astro 配置（站点URL、sitemap）
+├── package.json               # 依赖列表
+├── public/
+│   ├── favicon.svg            # 网站图标
+│   └── images/                # 图片资源
+├── src/
+│   ├── components/            # 可复用组件
+│   ├── layouts/BaseLayout.astro
+│   ├── pages/
+│   │   ├── index.astro        # 首页
+│   │   ├── about.astro        # 关于页
+│   │   └── blog/              # 博客列表 + 详情
+│   └── content/blog/          # Markdown 文章
+└── README.md</code></pre>
+
+    <hr />
+    <p class="extend">
+      <strong>延伸阅读：</strong>
+      <a href="/about">关于帆哥</a> ·
+      <a href="/blog">博客文章</a> ·
+      <a href="https://github.com/wangan0214/Fan" target="_blank" rel="noopener">本指南对应项目（GitHub，可 fork 当模板）</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .guide { max-width: 860px; margin: 0 auto; }
+  .kicker {
+    font-family: var(--serif-head);
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .guide h1 { font-size: var(--fs-display); margin-bottom: 1rem; }
+  .toc {
+    background: var(--accent-soft);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.6rem;
+    margin: 2rem 0 2.5rem;
+  }
+  .toc ol { margin: 0.6rem 0 0; padding-left: 1.4rem; }
+  .toc li { margin: 0.35rem 0; }
+  .guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: var(--fs-body);
+  }
+  .guide-table th, .guide-table td {
+    border: 1px solid var(--rule);
+    padding: 0.7rem 0.9rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .guide-table th { background: rgba(184,74,60,0.06); font-weight: 600; }
+  blockquote.warn {
+    border-left-color: var(--accent);
+    background: rgba(184,74,60,0.08);
+    color: var(--text-primary);
+    font-style: normal;
+  }
+  .extend { font-size: var(--fs-sm); color: var(--text-secondary); }
+  @media (max-width: 600px) {
+    .guide-table { font-size: 0.82rem; }
+    .guide-table th, .guide-table td { padding: 0.5rem 0.6rem; }
+  }
+</style>
