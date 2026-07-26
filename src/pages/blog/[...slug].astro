@@ -1,0 +1,418 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post, allPosts: posts },
+  }));
+}
+
+const { post, allPosts } = Astro.props;
+const { Content } = await render(post);
+
+// 相关文章：排除当前文章，取最新 5 篇
+const relatedPosts = allPosts
+  .filter((p) => p.id !== post.id && !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <div class="post-layout">
+    <!-- ═══ 主内容区 ═══ -->
+    <article class="post-main">
+      <header class="post-header">
+        <div class="header-accent"></div>
+        <h1>{post.data.title}</h1>
+        <p class="meta">
+          <FormattedDate date={post.data.date} />
+          {post.data.tags.length ? ' · ' + post.data.tags.join(' / ') : ''}
+        </p>
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <footer class="post-footer">
+        <a href="/blog" class="back-link">← 返回文章列表</a>
+        <a href="/rss.xml" class="rss-link-footer">订阅 RSS</a>
+      </footer>
+
+      <div class="copyright-box">
+        <p class="copyright-title">© {new Date().getFullYear()} 帆哥Benjamin · fangeai.com</p>
+        <p class="copyright-note">本文为作者原创内容，转载请注明出处并保留本声明。欢迎非商业分享，商业使用请先联系授权。</p>
+        <p class="copyright-links">
+          <a href="/about">关于我</a><span class="dot">·</span><a href="/tutorial">零代码搭个人主页教程</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- ═══ 侧边栏 ═══ -->
+    <aside class="post-sidebar">
+      <!-- 目录（客户端 JS 自动生成） -->
+      <nav class="sidebar-card toc-card">
+        <h3 class="sidebar-title">📑 目录</h3>
+        <div id="toc-list" class="toc-list">
+          <p class="toc-placeholder">加载中…</p>
+        </div>
+      </nav>
+
+      <!-- 推荐阅读 -->
+      <nav class="sidebar-card related-card">
+        <h3 class="sidebar-title">📖 推荐阅读</h3>
+        <ul class="related-list">
+          {relatedPosts.map((rp) => (
+            <li>
+              <a href={`/blog/${rp.id}/`} class="related-link">
+                <span class="related-title">{rp.data.title}</span>
+                <span class="related-date"><FormattedDate date={rp.data.date} /></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- 关于作者 -->
+      <div class="sidebar-card author-card">
+        <h3 class="sidebar-title">✍️ 关于作者</h3>
+        <p class="author-bio">
+          帆哥Benjamin — 不会写代码的互联网科技人，用 AI Agent 把想法变成产品。
+        </p>
+        <a href="/about" class="author-link">了解我 →</a>
+      </div>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  /* ═══ 两栏布局 ═══ */
+  .post-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    align-items: start;
+    max-width: 100%;
+  }
+
+  .post-main { max-width: 100%; }
+
+  .post-header {
+    text-align: center;
+    padding: 0.5rem 0 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .header-accent {
+    width: 50px; height: 3px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    margin: 0 auto 1.5rem; border-radius: 2px;
+  }
+  .post-header h1 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.02em;
+  }
+  .meta {
+    color: var(--text-light);
+    font-size: 0.88rem;
+    margin: 0;
+  }
+
+  .prose {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 2rem 2.2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.04);
+    font-size: 1.02rem;
+    line-height: 1.8;
+  }
+  .prose :global(p) { margin: 1.3em 0; }
+  .prose :global(h2) {
+    margin-top: 2em;
+    font-size: 1.55rem;
+    padding-top: 0.8em;
+  }
+  .prose :global(h3) {
+    margin-top: 1.6em;
+    font-size: 1.25rem;
+  }
+  .prose :global(a) { color: var(--accent); }
+  .prose :global(a:hover) { color: var(--accent-dark); }
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--accent);
+    margin: 1.5em 0;
+    padding: 0.8em 1.3em;
+    background: var(--accent-soft);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  .prose :global(pre) {
+    background: var(--bg-deep);
+    color: #d4cfc4;
+    padding: 1.2em 1.4em;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin: 1.5em 0;
+  }
+  .prose :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .prose :global(:not(pre) > code) {
+    background: rgba(0,0,0,0.05);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.88em;
+  }
+  .prose :global(img) {
+    max-width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    margin: 1.8em 0;
+  }
+  .prose :global(hr) {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--rule), transparent);
+    margin: 2.5em 0;
+  }
+  .prose :global(ul),
+  .prose :global(ol) { padding-left: 1.5em; margin: 1.2em 0; }
+  .prose :global(li) { margin: 0.45em 0; }
+
+  .post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .back-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.18s ease;
+  }
+  .back-link:hover { color: var(--accent); }
+  .rss-link-footer {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  /* ═══ 版权声明块 ═══ */
+  .copyright-box {
+    margin-top: 2rem;
+    padding: 1.4rem 1.6rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+  .copyright-title {
+    margin: 0 0 0.4rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .copyright-note {
+    margin: 0 0 0.6rem;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+  .copyright-links {
+    margin: 0;
+    font-size: 0.84rem;
+  }
+  .copyright-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .copyright-links a:hover { color: var(--accent-dark); }
+  .copyright-links .dot {
+    margin: 0 0.5rem;
+    color: var(--rule-dark);
+  }
+
+  /* ═══ 侧边栏样式 ═══ */
+  .post-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    position: sticky;
+    top: 5rem;
+  }
+
+  .sidebar-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.3rem 1.4rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .sidebar-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin: 0 0 0.85rem;
+    color: var(--text-primary);
+    font-family: var(--serif-head);
+  }
+
+  /* TOC */
+  .toc-list { list-style: none; padding: 0; margin: 0; }
+  .toc-list li {
+    position: relative;
+    padding-left: 1em;
+  }
+  .toc-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--rule-dark);
+    transition: background 0.2s;
+  }
+  .toc-list a {
+    display: block;
+    padding: 0.3em 0;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    transition: color 0.18s;
+  }
+  .toc-list a:hover { color: var(--accent); }
+  .toc-list a.active {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .toc-list a.active::before { background: var(--accent); }
+  .toc-list .toc-h3 { padding-left: 1.2em; }
+  .toc-list .toc-h3 a { font-size: 0.78rem; opacity: 0.8; }
+  .toc-placeholder {
+    color: var(--text-light);
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+
+  /* Related posts */
+  .related-list { list-style: none; padding: 0; margin: 0; }
+  .related-list li { margin-bottom: 0; }
+  .related-link {
+    display: flex;
+    flex-direction: column;
+    padding: 0.55rem 0;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.18s;
+  }
+  .related-link:last-child { border-bottom: none; }
+  .related-link:hover { transform: translateX(3px); }
+  .related-title {
+    font-size: 0.84rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+    transition: color 0.18s;
+  }
+  .related-link:hover .related-title { color: var(--accent); }
+  .related-date {
+    font-size: 0.74rem;
+    color: var(--text-light);
+    margin-top: 0.15rem;
+  }
+
+  /* Author card */
+  .author-bio {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 0.7rem;
+  }
+  .author-link {
+    display: inline-block;
+    font-size: 0.82rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.18s;
+  }
+  .author-link:hover { color: var(--accent-dark); }
+
+  /* ═══ 响应式：≤900px 隐藏侧边栏，单栏 ═══ */
+  @media (max-width: 900px) {
+    .post-layout {
+      grid-template-columns: 1fr;
+    }
+    .post-sidebar {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .post-header h1 { font-size: 1.85rem; }
+    .prose { padding: 1.4rem 1.2rem; }
+    .post-footer { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+  }
+</style>
+
+<script>
+  // 自动从 prose 中提取 h2/h3 生成目录
+  function buildTOC() {
+    const container = document.getElementById('toc-list');
+    const prose = document.querySelector('.prose');
+    if (!container || !prose) return;
+
+    const headings = prose.querySelectorAll('h2, h3');
+    if (headings.length === 0) {
+      container.innerHTML = '<p class="toc-placeholder">本文无目录</p>';
+      return;
+    }
+
+    let html = '';
+    headings.forEach((h, i) => {
+      const id = `heading-${i}`;
+      h.id = id;
+      const level = h.tagName.toLowerCase();
+      const cls = level === 'h3' ? ' toc-h3' : '';
+      html += `<li><a href="#${id}" class="${cls}">${h.textContent}</a></li>`;
+    });
+    container.innerHTML = `<ul class="toc-list">${html}</ul>`;
+
+    // 高亮当前滚动位置对应的目录项
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            container.querySelectorAll('a').forEach((a) => a.classList.remove('active'));
+            const active = container.querySelector(`a[href="#${entry.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
+        });
+      },
+      { rootMargin: '-80px 0% -70% 0%', threshold: 0 }
+    );
+    headings.forEach((h) => observer.observe(h));
+  }
+
+  // DOM 就绪后执行（Astro 页面已 hydrate）
+  buildTOC();
+</script>
